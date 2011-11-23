@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebSummaryViewConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EntityType TypeName="Sage.Entity.Interfaces.IDefect, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <Properties />
+  </EntityType>
+  <Query id="470a693c-5a22-499d-8e61-e6b02a95c3ca" expires="0" name="DefectSummary_query">
+    <columnAliases>
+      <alias>id</alias>
+      <alias>defectnumber</alias>
+      <alias>statuscode</alias>
+      <alias>statuscode_PL</alias>
+      <alias>prioritycode</alias>
+      <alias>prioritycode_PL</alias>
+      <alias>severitycode</alias>
+      <alias>severitycode_PL</alias>
+      <alias>recordeddate</alias>
+      <alias>assignedto_ownerdescription</alias>
+      <alias>assigneddate</alias>
+      <alias>DefectActivities_count</alias>
+      <alias>DefectReturns_count</alias>
+      <alias>DefectTickets_count</alias>
+    </columnAliases>
+    <Parameters />
+    <hql>select  mainentity.id,  mainentity.DefectNumber,  mainentity.StatusCode, pklStatus_picklist.Text,  mainentity.PriorityCode, pklPriority_picklist.Text,  mainentity.SeverityCode, pklSeverity_picklist.Text,  mainentity.RecordedDate,  mainentity.AssignedTo.OwnerDescription,  mainentity.AssignedDate, count(distinct defectactivities_.id), count(distinct defectreturns_.id), count(distinct defecttickets_.id) from Defect  mainentity  left join  mainentity.DefectActivities defectactivities_  left join  mainentity.DefectReturns defectreturns_  left join  mainentity.DefectTickets defecttickets_  left join  mainentity.AssignedTo  , PickList pklStatus_picklist  , PickList pklPriority_picklist  , PickList pklSeverity_picklist  where   mainentity.StatusCode = pklStatus_picklist.ItemId and   mainentity.PriorityCode = pklPriority_picklist.ItemId and   mainentity.SeverityCode = pklSeverity_picklist.ItemId group by  mainentity.id,  mainentity.DefectNumber,  mainentity.StatusCode, pklStatus_picklist.Text,  mainentity.PriorityCode, pklPriority_picklist.Text,  mainentity.SeverityCode, pklSeverity_picklist.Text,  mainentity.RecordedDate,  mainentity.AssignedTo.OwnerDescription,  mainentity.AssignedDate</hql>
+  </Query>
+  <CollectionProperties>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="DefectActivities" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.IDefect, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="7d6b7449-301a-4331-96af-7e87e4de6608" expires="0" name="DefectSummary_agcTasks_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+          <alias>defectactivitycode</alias>
+          <alias>defectactivitycode_PL</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select defectactivityitem.id,defectactivityitem.Defect.id,defectactivityitem.DefectActivityCode,defectactivitycode_picklist.Text from DefectActivityItem defectactivityitem , PickList defectactivitycode_picklist   where  defectactivityitem.DefectActivityCode = defectactivitycode_picklist.ItemId </hql>
+      </NamedQuery>
+      <Template><![CDATA[
+<table>
+	<tpl for="items"><tpl if="xindex <= 25">
+		<tr>
+			<td class="SummaryChildrenTableCell">{defectactivitycode_PL}</td>
+		</tr>
+	</tpl>
+	<tpl if="xindex == 26">
+		<tr><td class="SummaryChildrenTableCell"><span >...</span></td></tr>
+	</tpl>
+	</tpl>
+</table>
+]]></Template>
+      <WhereFormatString>defectactivityitem.Defect.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="DefectReturns" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.IDefect, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="d766307e-242f-4505-8625-269110b2f47e" expires="0" name="DefectSummary_agcReturns_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+          <alias>return_returnnumber</alias>
+          <alias>return_id</alias>
+          <alias>return_status</alias>
+          <alias>return_priority</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select defectreturn.id,defectreturn.Defect.id,defectreturn.Return.ReturnNumber,defectreturn.Return.Id,defectreturn.Return.Status,defectreturn.Return.Priority from DefectReturn defectreturn</hql>
+      </NamedQuery>
+      <Template><![CDATA[
+<table>
+	<tpl for="items"><tpl if="xindex <= 25">
+		<tr>
+			<td class="SummaryChildrenTableCell"><a href="Return.aspx?entityid={return_id}&referringid={whereclauseid}"  title="{return_returnnumber}">{return_returnnumber:ellipsis(20)}</a></td>
+			<td class="SummaryChildrenTableCell"><span title="{return_status}">{return_status:ellipsis(20)}</span></td>
+			<td class="SummaryChildrenTableCell"><span title="{return_priority}">{return_priority:ellipsis(20)}</span></td>
+		</tr>
+	</tpl>
+	<tpl if="xindex == 26">
+		<tr><td class="SummaryChildrenTableCell"><span >...</span></td></tr>
+	</tpl>
+	</tpl>
+</table>
+]]></Template>
+      <WhereFormatString>defectreturn.Defect.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="DefectTickets" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.IDefect, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="8208b196-b569-4436-9783-f04c6d5e0697" expires="0" name="DefectSummary_agcTickets_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+          <alias>ticket_ticketnumber</alias>
+          <alias>ticket_id</alias>
+          <alias>ticket_statuscode</alias>
+          <alias>ticket_statuscode_PL</alias>
+          <alias>ticket_priority</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select defectticket.id,defectticket.Defect.id,defectticket.Ticket.TicketNumber,defectticket.Ticket.Id,defectticket.Ticket.StatusCode,ticket_statuscode_picklist.Text,defectticket.Ticket.Priority from DefectTicket defectticket , PickList ticket_statuscode_picklist   where  defectticket.Ticket.StatusCode = ticket_statuscode_picklist.ItemId </hql>
+      </NamedQuery>
+      <Template><![CDATA[
+<table>
+	<tpl for="items"><tpl if="xindex <= 25">
+		<tr>
+			<td class="SummaryChildrenTableCell"><a href="Ticket.aspx?entityid={ticket_id}&referringid={whereclauseid}"  title="{ticket_ticketnumber}">{ticket_ticketnumber:ellipsis(20)}</a></td>
+			<td class="SummaryChildrenTableCell">{ticket_statuscode_PL}</td>
+			<td class="SummaryChildrenTableCell"><span title="{ticket_priority}">{ticket_priority:ellipsis(20)}</span></td>
+		</tr>
+	</tpl>
+	<tpl if="xindex == 26">
+		<tr><td class="SummaryChildrenTableCell"><span >...</span></td></tr>
+	</tpl>
+	</tpl>
+</table>
+]]></Template>
+      <WhereFormatString>defectticket.Defect.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+  </CollectionProperties>
+  <Template><![CDATA[
+<tpl for="items"><div id="{id}" class="EntityCard">
+	<table>
+		<col style="width:250px" />
+		<col style="width:250px" />
+		<col style="width:250px" />
+		<thead><tr><th colspan="3">
+			<div class="SummaryTitle"><a href="Defect.aspx?entityid={id}" >{defectnumber:htmlEncode}</a></div>
+		</th></tr></thead>
+		<tbody>
+			<tr>
+				<td class="DataColumn">
+					<ul>
+						<li id="{id}_DefectSummary_pklStatus"><span>{statuscode_PL}</span></li>
+						<li id="{id}_DefectSummary_pklPriority"><span>{prioritycode_PL}</span></li>
+						<li id="{id}_DefectSummary_pklSeverity"><span>{severitycode_PL}</span></li>
+					</ul>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_DefectSummary_dtpRecordedDate">
+							<td class="SummaryCaption">{DefectSummary_Captions.dtpRecordedDate_Caption}</td>
+							<td class="DataItem">{recordeddate:date}</td>
+						</tr>
+						<tr id="{id}_DefectSummary_txtAssignedTo">
+							<td class="SummaryCaption">{DefectSummary_Captions.txtAssignedTo_Caption}</td>
+							<td class="DataItem">{assignedto_ownerdescription:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_DefectSummary_dtpAssignedDate">
+							<td class="SummaryCaption">{DefectSummary_Captions.dtpAssignedDate_Caption}</td>
+							<td class="DataItem">{assigneddate:date}</td>
+						</tr>
+					</table>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_DefectSummary_agcTasks">
+							<td class="SummaryCaption">{DefectSummary_Captions.agcTasks_Caption}</td>
+							<td class="DataItem"><div slx:id="{id}" slx:summarymanager="{parent.summarymanager}" slx:summarychild="DefectSummary_agcTasks_query" class="hasWindow" onclick="summaryNavHandler('{id}', 'DefectTasks', event);" onmouseout="summaryToolTipHandler('out', event);" onmouseover="summaryToolTipHandler('over', event);">{DefectActivities_count}</div></td>
+						</tr>
+						<tr id="{id}_DefectSummary_agcReturns">
+							<td class="SummaryCaption">{DefectSummary_Captions.agcReturns_Caption}</td>
+							<td class="DataItem"><div slx:id="{id}" slx:summarymanager="{parent.summarymanager}" slx:summarychild="DefectSummary_agcReturns_query" class="hasWindow" onclick="summaryNavHandler('{id}', 'DefectReturns', event);" onmouseout="summaryToolTipHandler('out', event);" onmouseover="summaryToolTipHandler('over', event);">{DefectReturns_count}</div></td>
+						</tr>
+						<tr id="{id}_DefectSummary_agcTickets">
+							<td class="SummaryCaption">{DefectSummary_Captions.agcTickets_Caption}</td>
+							<td class="DataItem"><div slx:id="{id}" slx:summarymanager="{parent.summarymanager}" slx:summarychild="DefectSummary_agcTickets_query" class="hasWindow" onclick="summaryNavHandler('{id}', 'DefectTickets', event);" onmouseout="summaryToolTipHandler('out', event);" onmouseover="summaryToolTipHandler('over', event);">{DefectTickets_count}</div></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div></tpl>
+]]></Template>
+  <WhereFormatString> mainentity.id eq '{0}'</WhereFormatString>
+</WebSummaryViewConfiguration>

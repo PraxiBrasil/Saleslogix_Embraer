@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<exportedFiles>
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\ContactDetails.ascx" timeStamp="2011-09-16T19:03:11.8430" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\ContactExtendedDetails.ascx" timeStamp="2011-09-16T19:03:11.8730" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\ContactLeadSources.ascx" timeStamp="2011-09-16T19:03:11.8830" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\ContactLiteratureRequests.ascx" timeStamp="2011-09-16T19:03:11.9330" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\ContactOpportunities.ascx" timeStamp="2011-09-16T19:03:11.9530" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\ContactProcesses.ascx" timeStamp="2011-09-16T19:03:11.9730" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\ContactTickets.ascx" timeStamp="2011-09-16T19:03:12.0230" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\SelectAccountAddress.ascx" timeStamp="2011-09-16T19:03:12.0630" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\App_LocalResources\" />
+</exportedFiles>

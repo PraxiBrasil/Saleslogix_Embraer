@@ -1,0 +1,33 @@
+﻿<?xml version="1.0"?>
+<exportedFiles>
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\AccountSummaryView.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:13.0470" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\AccountSummaryView.ascx.resx" timeStamp="2011-09-16T19:03:13.0470" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\ActivityContactSummary.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:13.4070" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\ActivityContactSummary.ascx.resx" timeStamp="2011-09-16T19:03:13.4070" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\ActivitySummaryList.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:13.4570" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\ActivitySummaryList.ascx.resx" timeStamp="2011-09-16T19:03:13.4570" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\CampaignSummary.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:12.2970" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\CampaignSummary.ascx.resx" timeStamp="2011-09-16T19:03:12.2970" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\ContactSummaryView.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:12.0030" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\ContactSummaryView.ascx.resx" timeStamp="2011-09-16T19:03:12.0030" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\ContractSummary.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:11.3330" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\ContractSummary.ascx.resx" timeStamp="2011-09-16T19:03:11.3430" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\CopyAccount.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:13.1070" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\CopyAccount.ascx.resx" timeStamp="2011-09-16T19:03:13.1070" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\CopyContact.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:12.0530" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\CopyContact.ascx.resx" timeStamp="2011-09-16T19:03:12.0530" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\DefectSummary.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:10.4830" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\DefectSummary.ascx.resx" timeStamp="2011-09-16T19:03:10.4830" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\LeadSummary.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:10.2530" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\LeadSummary.ascx.resx" timeStamp="2011-09-16T19:03:10.2530" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\OpportunitySummary.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:09.9300" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\OpportunitySummary.ascx.resx" timeStamp="2011-09-16T19:03:09.9300" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\ReturnSummary.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:09.2700" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\ReturnSummary.ascx.resx" timeStamp="2011-09-16T19:03:09.2700" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\SalesOrderSummaryView.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:09.0300" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\SalesOrderSummaryView.ascx.resx" timeStamp="2011-09-16T19:03:09.0300" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\TicketSummary.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:08.3400" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\TicketSummary.ascx.resx" timeStamp="2011-09-16T19:03:08.3400" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\UserSummaryView.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:06.3870" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\UserSummaryView.ascx.resx" timeStamp="2011-09-16T19:03:06.3870" />
+</exportedFiles>

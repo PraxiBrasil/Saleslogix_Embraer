@@ -1,0 +1,34 @@
+﻿<?xml version="1.0"?>
+<exportedFiles>
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\AccountSummaryView.ascx" timeStamp="2011-09-16T19:03:13.0470" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\AccountSummaryView.xml" timeStamp="2011-09-16T19:03:13.0470" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\ActivityContactSummary.ascx" timeStamp="2011-09-16T19:03:13.3970" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\ActivityContactSummary.xml" timeStamp="2011-09-16T19:03:13.3970" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\ActivitySummaryList.ascx" timeStamp="2011-09-16T19:03:13.4570" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\ActivitySummaryList.xml" timeStamp="2011-09-16T19:03:13.4570" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\CampaignSummary.ascx" timeStamp="2011-09-16T19:03:12.2970" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\CampaignSummary.xml" timeStamp="2011-09-16T19:03:12.2970" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\ContactSummaryView.ascx" timeStamp="2011-09-16T19:03:12.0030" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\ContactSummaryView.xml" timeStamp="2011-09-16T19:03:12.0030" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\ContractSummary.ascx" timeStamp="2011-09-16T19:03:11.3330" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\ContractSummary.xml" timeStamp="2011-09-16T19:03:11.3330" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\CopyAccount.ascx" timeStamp="2011-09-16T19:03:13.1070" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\CopyAccount.xml" timeStamp="2011-09-16T19:03:13.1070" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\CopyContact.ascx" timeStamp="2011-09-16T19:03:12.0530" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\CopyContact.xml" timeStamp="2011-09-16T19:03:12.0530" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\DefectSummary.ascx" timeStamp="2011-09-16T19:03:10.4830" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\DefectSummary.xml" timeStamp="2011-09-16T19:03:10.4830" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\LeadSummary.ascx" timeStamp="2011-09-16T19:03:10.2530" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\LeadSummary.xml" timeStamp="2011-09-16T19:03:10.2530" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\OpportunitySummary.ascx" timeStamp="2011-09-16T19:03:09.9300" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\OpportunitySummary.xml" timeStamp="2011-09-16T19:03:09.9300" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\ReturnSummary.ascx" timeStamp="2011-09-16T19:03:09.2700" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\ReturnSummary.xml" timeStamp="2011-09-16T19:03:09.2700" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\SalesOrderSummaryView.ascx" timeStamp="2011-09-16T19:03:09.0300" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\SalesOrderSummaryView.xml" timeStamp="2011-09-16T19:03:09.0300" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\TicketSummary.ascx" timeStamp="2011-09-16T19:03:08.3400" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\TicketSummary.xml" timeStamp="2011-09-16T19:03:08.3400" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\UserSummaryView.ascx" timeStamp="2011-09-16T19:03:06.3870" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\UserSummaryView.xml" timeStamp="2011-09-16T19:03:06.3870" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\App_LocalResources\" />
+</exportedFiles>

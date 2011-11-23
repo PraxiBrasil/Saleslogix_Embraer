@@ -1,0 +1,8 @@
+﻿<?xml version="1.0"?>
+<exportedFiles>
+  <exportedFile url="\deployment\webroot\common\dynamicmethods.xml" timeStamp="2011-11-23T20:20:36.1700" />
+  <exportedFile url="\deployment\webroot\common\hibernate.xml" timeStamp="2011-11-23T20:20:24.4130" />
+  <exportedFile url="\deployment\webroot\common\bin\" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\" />
+  <exportedFile url="\deployment\webroot\common\SummaryConfigData\" />
+</exportedFiles>

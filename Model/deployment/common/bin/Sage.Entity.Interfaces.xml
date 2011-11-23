@@ -1,0 +1,1358 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Sage.Entity.Interfaces</name>
+    </assembly>
+    <members>
+        <member name="P:Sage.Entity.Interfaces.IAccount.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IAccount.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IAccountProduct.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IAccountProduct.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IAccountSummary.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IAccountSummary.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IActivity.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IActivity.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IActivityTrackingEvent.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IActivityTrackingEvent.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IActivityTrackingEventExtract.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IActivityTrackingEventExtract.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IActivityTrackingEventHistory.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IActivityTrackingEventHistory.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IActivityTrackingEvtAntn.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IActivityTrackingEvtAntn.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IAddress.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IAddress.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IAdHocGroup.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IAdHocGroup.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IAreaCategoryIssue.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IAreaCategoryIssue.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IAssociation.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IAssociation.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IAttachment.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IAttachment.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ICampaign.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ICampaign.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ICampaignProduct.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ICampaignProduct.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ICampaignStage.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ICampaignStage.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ICampaignTarget.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ICampaignTarget.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ICampaignTargetsView.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ICampaignTargetsView.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ICampaignTask.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ICampaignTask.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ICompetitor.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ICompetitor.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IContact.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IContact.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IContactLeadSource.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IContactLeadSource.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IContract.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IContract.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IContractIncident.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IContractIncident.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IContractItem.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IContractItem.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDefect.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDefect.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDefectActivityItem.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDefectActivityItem.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDefectActivityRate.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDefectActivityRate.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDefectHistory.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDefectHistory.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDefectProblem.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDefectProblem.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDefectProduct.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDefectProduct.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDefectReturn.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDefectReturn.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDefectSolution.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDefectSolution.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDefectTicket.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDefectTicket.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDepartment.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IDepartment.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IEvent.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IEvent.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IExchangeRate.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IExchangeRate.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IHistory.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IHistory.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IHistoryMarketingServiceClick.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IHistoryMarketingServiceClick.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IHistoryMarketingServiceOpen.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IHistoryMarketingServiceOpen.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IHistoryMarketingServiceUndeliverable.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IHistoryMarketingServiceUndeliverable.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IImportHistory.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IImportHistory.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IImportHistoryItem.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IImportHistoryItem.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IImportTemplate.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IImportTemplate.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IIndexDefinition.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IIndexDefinition.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IIndexGeneral.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IIndexGeneral.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IIndexSchedule.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IIndexSchedule.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IIndexStatistics.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IIndexStatistics.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILead.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILead.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILeadAddress.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILeadAddress.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILeadAddressHistory.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILeadAddressHistory.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILeadHistory.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILeadHistory.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILeadHistoryHistory.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILeadHistoryHistory.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILeadHistoryQualification.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILeadHistoryQualification.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILeadHistoryResponse.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILeadHistoryResponse.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILeadImportMap.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILeadImportMap.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILeadQualification.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILeadQualification.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILeadSource.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILeadSource.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILibraryDirs.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILibraryDirs.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILibraryDocs.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILibraryDocs.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILiteratureItem.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILiteratureItem.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILitRequest.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILitRequest.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILitRequestItem.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ILitRequestItem.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IMarketingServiceCampaign.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IMarketingServiceCampaign.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IMarketingServiceClick.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IMarketingServiceClick.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IMarketingServiceOpen.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IMarketingServiceOpen.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IMarketingServiceRecipient.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IMarketingServiceRecipient.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IMarketingServiceUndeliverable.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IMarketingServiceUndeliverable.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IMarketingServiceUserInfo.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IMarketingServiceUserInfo.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IOpportunity.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IOpportunity.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IOpportunityCampaign.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IOpportunityCampaign.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IOpportunityCompetitor.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IOpportunityCompetitor.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IOpportunityContact.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IOpportunityContact.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IOpportunityProduct.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IOpportunityProduct.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IOwner.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IOwner.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IOwnerJoin.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IOwnerJoin.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IOwnerRights.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IOwnerRights.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IOwnerSecurityProfile.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IOwnerSecurityProfile.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IPackage.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IPackage.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IPackageProduct.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IPackageProduct.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IPickListItemView.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IPickListItemView.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IPickListView.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IPickListView.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProcess.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProcess.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProcessInstanceState.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProcessInstanceState.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProcessInstanceStatus.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProcessInstanceStatus.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProcessTrackingEvent.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProcessTrackingEvent.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProcessTrackingEventAnnotation.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProcessTrackingEventAnnotation.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProcessTrackingEventHistory.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProcessTrackingEventHistory.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProcessTypeCategory.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProcessTypeCategory.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProcessTypeInformation.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProcessTypeInformation.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProduct.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProduct.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProductProgram.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IProductProgram.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IQualification.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IQualification.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IQualificationCategory.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IQualificationCategory.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IResourceList.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IResourceList.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IResourceSchedule.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IResourceSchedule.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IResponseProduct.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IResponseProduct.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IReturn.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IReturn.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IReturnAddress.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IReturnAddress.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IReturnReceivedProduct.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IReturnReceivedProduct.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IReturnShippedProduct.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IReturnShippedProduct.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IRole.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IRole.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ISalesOrder.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ISalesOrder.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ISalesOrderAddress.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ISalesOrderAddress.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ISalesOrderItem.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ISalesOrderItem.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ISalesProcessAudit.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ISalesProcessAudit.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ISalesProcesses.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ISalesProcesses.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ISecuredAction.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ISecuredAction.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ISecuredActionRole.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ISecuredActionRole.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITargetResponse.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITargetResponse.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITeam.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITeam.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicket.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicket.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketAccountProduct.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketAccountProduct.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketActivity.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketActivity.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketActivityItem.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketActivityItem.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketActivityRate.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketActivityRate.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketAreaOwner.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketAreaOwner.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketHistory.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketHistory.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketProblem.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketProblem.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketProblemSolutionType.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketProblemSolutionType.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketProblemType.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketProblemType.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketSolution.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketSolution.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketSolutionType.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.ITicketSolutionType.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUrgency.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUrgency.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUser.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUser.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserActivity.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserActivity.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserCalendar.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserCalendar.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserInfo.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserInfo.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserNotification.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserNotification.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserProfile.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserProfile.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserRole.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserRole.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserSubscription.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserSubscription.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserTrackingEvent.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserTrackingEvent.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserTrackingEventAnnotation.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserTrackingEventAnnotation.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserTrackingEvtExt.InstanceId">
+            <summary>
+            Gets the unique identifier for this instance
+            </summary>
+        </member>
+        <member name="P:Sage.Entity.Interfaces.IUserTrackingEvtExt.Creating">
+            <summary>
+            <c>true</c> if the current object is being created.
+            </summary>
+        </member>
+    </members>
+</doc>

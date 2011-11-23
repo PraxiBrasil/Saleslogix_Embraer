@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebSummaryViewConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EntityType TypeName="Sage.Entity.Interfaces.IOpportunity, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <Properties />
+  </EntityType>
+  <Query id="426991e6-c952-45a7-a42c-aca3abe1e46e" expires="0" name="OpportunitySummary_query">
+    <columnAliases>
+      <alias>id</alias>
+      <alias>description</alias>
+      <alias>status</alias>
+      <alias>closeprobability</alias>
+      <alias>estimatedclose</alias>
+      <alias>salespotential</alias>
+      <alias>account_id</alias>
+      <alias>account_accountname</alias>
+      <alias>modifydate</alias>
+      <alias>accountmanager_userinfo_username</alias>
+      <alias>Products_count</alias>
+      <alias>Contacts_count</alias>
+      <alias>Competitors_count</alias>
+    </columnAliases>
+    <Parameters />
+    <hql>select  mainentity.id,  mainentity.Description,  mainentity.Status,  mainentity.CloseProbability,  mainentity.EstimatedClose,  mainentity.SalesPotential,  mainentity.Account.Id,  mainentity.Account.AccountName,  mainentity.ModifyDate,  mainentity.AccountManager.UserInfo.UserName, count(distinct products_.id), count(distinct contacts_.id), count(distinct competitors_.CompetitorId) from Opportunity  mainentity  left join  mainentity.Products products_  left join  mainentity.Contacts contacts_  left join  mainentity.Competitors competitors_  left join  mainentity.Account  left join  mainentity.AccountManager  group by  mainentity.id,  mainentity.Description,  mainentity.Status,  mainentity.CloseProbability,  mainentity.EstimatedClose,  mainentity.SalesPotential,  mainentity.Account.Id,  mainentity.Account.AccountName,  mainentity.ModifyDate,  mainentity.AccountManager.UserInfo.UserName</hql>
+  </Query>
+  <CollectionProperties>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="Products" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.IOpportunity, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="279c442a-fad5-431d-8d90-4d48d116cbea" expires="0" name="OpportunitySummary_agcProducts_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+          <alias>product_name</alias>
+          <alias>quantity</alias>
+          <alias>price</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select opportunityproduct.id,opportunityproduct.Opportunity.id,opportunityproduct.Product.Name,opportunityproduct.Quantity,opportunityproduct.Price from OpportunityProduct opportunityproduct</hql>
+      </NamedQuery>
+      <Template><![CDATA[
+<table>
+	<tpl for="items"><tpl if="xindex <= 25">
+		<tr>
+			<td class="SummaryChildrenTableCell"><span title="{product_name}">{product_name:ellipsis(20)}</span></td>
+			<td class="SummaryChildrenTableCell"><span title="{quantity}">{quantity:ellipsis(20)}</span></td>
+			<td class="SummaryChildrenTableCell"><span title="{price}">{price:ellipsis(20)}</span></td>
+		</tr>
+	</tpl>
+	<tpl if="xindex == 26">
+		<tr><td class="SummaryChildrenTableCell"><span >...</span></td></tr>
+	</tpl>
+	</tpl>
+</table>
+]]></Template>
+      <WhereFormatString>opportunityproduct.Opportunity.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="Contacts" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.IOpportunity, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="918d041d-bf33-47af-80a1-256438ff9521" expires="0" name="OpportunitySummary_agcContacts_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+          <alias>contact_name</alias>
+          <alias>contact_id</alias>
+          <alias>contact_workphone</alias>
+          <alias>contact_email</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select opportunitycontact.id,opportunitycontact.Opportunity.id,opportunitycontact.Contact.Name,opportunitycontact.Contact.Id,opportunitycontact.Contact.WorkPhone,opportunitycontact.Contact.Email from OpportunityContact opportunitycontact</hql>
+      </NamedQuery>
+      <Template><![CDATA[
+<table>
+	<tpl for="items"><tpl if="xindex <= 25">
+		<tr>
+			<td class="SummaryChildrenTableCell"><a href="Contact.aspx?entityid={contact_id}&referringid={whereclauseid}"  title="{contact_name}">{contact_name:ellipsis(20)}</a></td>
+			<td class="SummaryChildrenTableCell">{[LiveGrid_RenderPhoneNumber(values.contact_workphone)]}</td>
+			<td class="SummaryChildrenTableCell"><tpl if="contact_email"><a href="mailto:{contact_email}"><img src="ImageResource.axd?scope=global&type=Global_Images&key=Send_Write_email_16x16" /></a></tpl></td>
+		</tr>
+	</tpl>
+	<tpl if="xindex == 26">
+		<tr><td class="SummaryChildrenTableCell"><span >...</span></td></tr>
+	</tpl>
+	</tpl>
+</table>
+]]></Template>
+      <WhereFormatString>opportunitycontact.Opportunity.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="Competitors" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.IOpportunity, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="5d571f65-8b4e-433c-b158-c3751f4d8c7e" expires="0" name="OpportunitySummary_agcCompetitors_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+          <alias>competitor_competitorname</alias>
+          <alias>rating</alias>
+          <alias>reason</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select opportunitycompetitor.CompetitorId,opportunitycompetitor.Opportunity.id,opportunitycompetitor.Competitor.CompetitorName,opportunitycompetitor.Rating,opportunitycompetitor.Reason from OpportunityCompetitor opportunitycompetitor</hql>
+      </NamedQuery>
+      <Template><![CDATA[
+<table>
+	<tpl for="items"><tpl if="xindex <= 25">
+		<tr>
+			<td class="SummaryChildrenTableCell"><span title="{competitor_competitorname}">{competitor_competitorname:ellipsis(20)}</span></td>
+			<td class="SummaryChildrenTableCell"><span title="{rating}">{rating:ellipsis(20)}</span></td>
+			<td class="SummaryChildrenTableCell"><span title="{reason}">{reason:ellipsis(20)}</span></td>
+		</tr>
+	</tpl>
+	<tpl if="xindex == 26">
+		<tr><td class="SummaryChildrenTableCell"><span >...</span></td></tr>
+	</tpl>
+	</tpl>
+</table>
+]]></Template>
+      <WhereFormatString>opportunitycompetitor.Opportunity.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+  </CollectionProperties>
+  <Template><![CDATA[
+<tpl for="items"><div id="{id}" class="EntityCard">
+	<table>
+		<col style="width:250px" />
+		<col style="width:250px" />
+		<col style="width:250px" />
+		<thead><tr><th colspan="3">
+			<div class="SummaryTitle"><a href="Opportunity.aspx?entityid={id}" >{description:htmlEncode}</a></div>
+		</th></tr></thead>
+		<tbody>
+			<tr>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_OpportunitySummary_pklStatus">
+							<td class="SummaryCaption">{OpportunitySummary_Captions.pklStatus_Caption}</td>
+							<td class="DataItem">{status}</td>
+						</tr>
+						<tr id="{id}_OpportunitySummary_numProbability">
+							<td class="SummaryCaption">{OpportunitySummary_Captions.numProbability_Caption}</td>
+							<td class="DataItem">{[ListPanelSummary_FixedNumberRenderer(values.closeprobability,"%2.0f%%")]}</td>
+						</tr>
+						<tr id="{id}_OpportunitySummary_dtpEstimatedClose">
+							<td class="SummaryCaption">{OpportunitySummary_Captions.dtpEstimatedClose_Caption}</td>
+							<td class="DataItem">{[ListPanel_RenderDateOnly(values.estimatedclose)]}</td>
+						</tr>
+						<tr id="{id}_OpportunitySummary_curPotential">
+							<td class="SummaryCaption">{OpportunitySummary_Captions.curPotential_Caption}</td>
+							<td class="DataItem">{[ListPanelSummary_FixedNumberRenderer(values.salespotential,"%.2n")]}</td>
+						</tr>
+					</table>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_OpportunitySummary_lnkAccount">
+							<td class="SummaryCaption">{OpportunitySummary_Captions.lnkAccount_Caption}</td>
+							<td class="DataItem"><a href="Account.aspx?entityid={account_id}" >{account_accountname:htmlEncode}</a></td>
+						</tr>
+						<tr id="{id}_OpportunitySummary_dtpLastUpdate">
+							<td class="SummaryCaption">{OpportunitySummary_Captions.dtpLastUpdate_Caption}</td>
+							<td class="DataItem">{[ListPanel_RenderDateOnly(values.modifydate)]}</td>
+						</tr>
+						<tr id="{id}_OpportunitySummary_usrAccountManager">
+							<td class="SummaryCaption">{OpportunitySummary_Captions.usrAccountManager_Caption}</td>
+							<td class="DataItem">{accountmanager_userinfo_username:htmlEncode}</td>
+						</tr>
+					</table>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_OpportunitySummary_agcProducts">
+							<td class="SummaryCaption">{OpportunitySummary_Captions.agcProducts_Caption}</td>
+							<td class="DataItem"><div slx:id="{id}" slx:summarymanager="{parent.summarymanager}" slx:summarychild="OpportunitySummary_agcProducts_query" class="hasWindow" onclick="summaryNavHandler('{id}', 'OpportunityProductEX', event);" onmouseout="summaryToolTipHandler('out', event);" onmouseover="summaryToolTipHandler('over', event);">{Products_count}</div></td>
+						</tr>
+						<tr id="{id}_OpportunitySummary_agcContacts">
+							<td class="SummaryCaption">{OpportunitySummary_Captions.agcContacts_Caption}</td>
+							<td class="DataItem"><div slx:id="{id}" slx:summarymanager="{parent.summarymanager}" slx:summarychild="OpportunitySummary_agcContacts_query" class="hasWindow" onclick="summaryNavHandler('{id}', 'OpportunityContacts', event);" onmouseout="summaryToolTipHandler('out', event);" onmouseover="summaryToolTipHandler('over', event);">{Contacts_count}</div></td>
+						</tr>
+						<tr id="{id}_OpportunitySummary_agcCompetitors">
+							<td class="SummaryCaption">{OpportunitySummary_Captions.agcCompetitors_Caption}</td>
+							<td class="DataItem"><div slx:id="{id}" slx:summarymanager="{parent.summarymanager}" slx:summarychild="OpportunitySummary_agcCompetitors_query" class="hasWindow" onclick="summaryNavHandler('{id}', 'OpportunityCompetitors', event);" onmouseout="summaryToolTipHandler('out', event);" onmouseover="summaryToolTipHandler('over', event);">{Competitors_count}</div></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div></tpl>
+]]></Template>
+  <WhereFormatString> mainentity.id eq '{0}'</WhereFormatString>
+</WebSummaryViewConfiguration>

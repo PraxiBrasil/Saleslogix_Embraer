@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebSummaryViewConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EntityType TypeName="Sage.Entity.Interfaces.IAccount, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <Properties />
+  </EntityType>
+  <Query id="29fae84c-e221-4877-9036-0449d3aa473a" expires="0" name="CopyAccount_query">
+    <columnAliases>
+      <alias>id</alias>
+      <alias>accountname</alias>
+      <alias>address_address1</alias>
+      <alias>address_address2</alias>
+      <alias>address_address3</alias>
+      <alias>address_citystatezip</alias>
+      <alias>webaddress</alias>
+      <alias>mainphone</alias>
+      <alias>fax</alias>
+    </columnAliases>
+    <Parameters />
+    <hql>select  mainentity.id,  mainentity.AccountName,  mainentity.Address.Address1,  mainentity.Address.Address2,  mainentity.Address.Address3,  mainentity.Address.CityStateZip,  mainentity.WebAddress,  mainentity.MainPhone,  mainentity.Fax from Account  mainentity  left join  mainentity.Address </hql>
+  </Query>
+  <CollectionProperties>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="Contacts" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.IAccount, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="8b8f4949-31af-4a61-a202-48feb60397b4" expires="0" name="CopyAccount_grdContacts_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+          <alias>namepfl</alias>
+          <alias>title</alias>
+          <alias>email</alias>
+          <alias>workphone</alias>
+          <alias>mobile</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select contact.id,contact.Account.id,contact.NamePFL,contact.Title,contact.Email,contact.WorkPhone,contact.Mobile from Contact contact</hql>
+      </NamedQuery>
+      <Template><![CDATA[]]></Template>
+      <WhereFormatString>contact.Account.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+  </CollectionProperties>
+  <Template><![CDATA[
+<tpl for="items"><div id="{id}" class="EntityCard">
+	<table style="width:100%">
+		<col />
+		<tbody>
+			<tr>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_CopyAccount_txtAccountName">
+							<td class="SummaryCaption SummaryTitle">{CopyAccount_Captions.txtAccountName_Caption}</td>
+							<td class="DataItem SummaryTitle">{accountname:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_CopyAccount_txtAddress1">
+							<td class="SummaryCaption">{CopyAccount_Captions.txtAddress1_Caption}</td>
+							<td class="DataItem">{address_address1:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_CopyAccount_txtAddress2">
+							<td class="SummaryCaption">{CopyAccount_Captions.txtAddress2_Caption}</td>
+							<td class="DataItem">{address_address2:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_CopyAccount_txtAddress3">
+							<td class="SummaryCaption">{CopyAccount_Captions.txtAddress3_Caption}</td>
+							<td class="DataItem">{address_address3:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_CopyAccount_txtCityStateZip">
+							<td class="SummaryCaption">{CopyAccount_Captions.txtCityStateZip_Caption}</td>
+							<td class="DataItem">{address_citystatezip:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_CopyAccount_txtWebAddress">
+							<td class="SummaryCaption">{CopyAccount_Captions.txtWebAddress_Caption}</td>
+							<td class="DataItem">{webaddress:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_CopyAccount_phnMainPhone">
+							<td class="SummaryCaption">{CopyAccount_Captions.phnMainPhone_Caption}</td>
+							<td class="DataItem">{[LiveGrid_RenderPhoneNumber(values.mainphone)]}</td>
+						</tr>
+						<tr id="{id}_CopyAccount_phnFax">
+							<td class="SummaryCaption">{CopyAccount_Captions.phnFax_Caption}</td>
+							<td class="DataItem">{[LiveGrid_RenderPhoneNumber(values.fax)]}</td>
+						</tr>
+						<tr id="{id}_CopyAccount_grdContacts">
+							<td class="SummaryCaption">{CopyAccount_Captions.grdContacts_Caption}</td>
+							<td class="DataItem"><table><tpl for="Contacts.items"><tr><td><span>{namepfl}</span></td></tr><tr><td><span>{title}</span></td></tr><tr><td><span>{email}</span></td></tr><tr><td>{[LiveGrid_RenderPhoneNumber(values.workphone)]}</td></tr><tr><td>{[LiveGrid_RenderPhoneNumber(values.mobile)]}</td></tr></tpl></table></td>
+						</tr>
+						<tr id="{id}_CopyAccount_dsContacts" class="x-hide-display">
+							<td class="SummaryCaption">{CopyAccount_Captions.dsContacts_Caption}</td>
+							<td class="DataItem"></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div></tpl>
+]]></Template>
+  <WhereFormatString> mainentity.id eq '{0}'</WhereFormatString>
+</WebSummaryViewConfiguration>

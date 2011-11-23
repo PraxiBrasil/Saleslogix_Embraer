@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebSummaryViewConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EntityType TypeName="Sage.Entity.Interfaces.ISalesOrder, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <Properties />
+  </EntityType>
+  <Query id="c07948a9-db99-4d9e-aeef-1b4b2d325451" expires="0" name="SalesOrderSummaryView_query">
+    <columnAliases>
+      <alias>id</alias>
+      <alias>salesordernumber</alias>
+      <alias>ordertype</alias>
+      <alias>status</alias>
+      <alias>orderdate</alias>
+      <alias>datepromised</alias>
+      <alias>account_id</alias>
+      <alias>account_accountname</alias>
+      <alias>opportunity_id</alias>
+      <alias>opportunity_description</alias>
+      <alias>modifydate</alias>
+      <alias>accountmanager</alias>
+      <alias>SalesOrderItems_count</alias>
+      <alias>ordertotal</alias>
+      <alias>grandtotal</alias>
+    </columnAliases>
+    <Parameters />
+    <hql>select  mainentity.id,  mainentity.SalesOrderNumber,  mainentity.OrderType,  mainentity.Status,  mainentity.OrderDate,  mainentity.DatePromised,  mainentity.Account.Id,  mainentity.Account.AccountName,  mainentity.Opportunity.Id,  mainentity.Opportunity.Description,  mainentity.ModifyDate,  mainentity.AccountManager.UserInfo.UserName, count(distinct salesorderitems_.id),  mainentity.OrderTotal,  mainentity.GrandTotal from SalesOrder  mainentity  left join  mainentity.SalesOrderItems salesorderitems_  left join  mainentity.Account  left join  mainentity.Opportunity  left join  mainentity.AccountManager  group by  mainentity.id,  mainentity.SalesOrderNumber,  mainentity.OrderType,  mainentity.Status,  mainentity.OrderDate,  mainentity.DatePromised,  mainentity.Account.Id,  mainentity.Account.AccountName,  mainentity.Opportunity.Id,  mainentity.Opportunity.Description,  mainentity.ModifyDate,  mainentity.AccountManager.UserInfo.UserName,  mainentity.OrderTotal,  mainentity.GrandTotal</hql>
+  </Query>
+  <CollectionProperties>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="SalesOrderItems" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.ISalesOrder, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="1af13369-ab68-4079-ba6e-f44d7121c436" expires="0" name="SalesOrderSummaryView_agcProducts_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+          <alias>productname</alias>
+          <alias>quantity</alias>
+          <alias>price</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select salesorderitem.id,salesorderitem.SalesOrder.id,salesorderitem.ProductName,salesorderitem.Quantity,salesorderitem.Price from SalesOrderItem salesorderitem</hql>
+      </NamedQuery>
+      <Template><![CDATA[
+<table>
+	<tpl for="items"><tpl if="xindex <= 25">
+		<tr>
+			<td class="SummaryChildrenTableCell"><span title="{productname}">{productname:ellipsis(20)}</span></td>
+			<td class="SummaryChildrenTableCell"><span title="{quantity}">{quantity:ellipsis(20)}</span></td>
+			<td class="SummaryChildrenTableCell"><span title="{price}">{price:ellipsis(20)}</span></td>
+		</tr>
+	</tpl>
+	<tpl if="xindex == 26">
+		<tr><td class="SummaryChildrenTableCell"><span >...</span></td></tr>
+	</tpl>
+	</tpl>
+</table>
+]]></Template>
+      <WhereFormatString>salesorderitem.SalesOrder.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+  </CollectionProperties>
+  <Template><![CDATA[
+<tpl for="items"><div id="{id}" class="EntityCard">
+	<table style="width:100%">
+		<col style="width:33%" />
+		<col style="width:33%" />
+		<col style="width:33%" />
+		<thead><tr><th colspan="3">
+			<div class="SummaryTitle"><a href="SalesOrder.aspx?entityid={id}" >{salesordernumber:htmlEncode}</a></div>
+		</th></tr></thead>
+		<tbody>
+			<tr>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_SalesOrderSummaryView_pklType">
+							<td class="SummaryCaption">{SalesOrderSummaryView_Captions.pklType_Caption}</td>
+							<td class="DataItem">{ordertype}</td>
+						</tr>
+						<tr id="{id}_SalesOrderSummaryView_pklStatus">
+							<td class="SummaryCaption">{SalesOrderSummaryView_Captions.pklStatus_Caption}</td>
+							<td class="DataItem">{status}</td>
+						</tr>
+						<tr id="{id}_SalesOrderSummaryView_dtpDateRequested">
+							<td class="SummaryCaption">{SalesOrderSummaryView_Captions.dtpDateRequested_Caption}</td>
+							<td class="DataItem">{[ListPanel_RenderDateOnly(values.orderdate)]}</td>
+						</tr>
+						<tr id="{id}_SalesOrderSummaryView_dtpDatePromised">
+							<td class="SummaryCaption">{SalesOrderSummaryView_Captions.dtpDatePromised_Caption}</td>
+							<td class="DataItem">{[ListPanel_RenderDateOnly(values.datepromised)]}</td>
+						</tr>
+					</table>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_SalesOrderSummaryView_lnkAccount">
+							<td class="SummaryCaption">{SalesOrderSummaryView_Captions.lnkAccount_Caption}</td>
+							<td class="DataItem"><a href="Account.aspx?entityid={account_id}" >{account_accountname:htmlEncode}</a></td>
+						</tr>
+						<tr id="{id}_SalesOrderSummaryView_lnkOpportunity">
+							<td class="SummaryCaption">{SalesOrderSummaryView_Captions.lnkOpportunity_Caption}</td>
+							<td class="DataItem"><a href="Opportunity.aspx?entityid={opportunity_id}" >{opportunity_description:htmlEncode}</a></td>
+						</tr>
+						<tr id="{id}_SalesOrderSummaryView_dtpLastUpdate">
+							<td class="SummaryCaption">{SalesOrderSummaryView_Captions.dtpLastUpdate_Caption}</td>
+							<td class="DataItem">{[ListPanel_RenderDateOnly(values.modifydate)]}</td>
+						</tr>
+						<tr id="{id}_SalesOrderSummaryView_usrAccountManager">
+							<td class="SummaryCaption">{SalesOrderSummaryView_Captions.usrAccountManager_Caption}</td>
+							<td class="DataItem">{accountmanager}</td>
+						</tr>
+					</table>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_SalesOrderSummaryView_agcProducts">
+							<td class="SummaryCaption">{SalesOrderSummaryView_Captions.agcProducts_Caption}</td>
+							<td class="DataItem"><div slx:id="{id}" slx:summarymanager="{parent.summarymanager}" slx:summarychild="SalesOrderSummaryView_agcProducts_query" class="hasWindow" onclick="summaryNavHandler('{id}', '', event);" onmouseout="summaryToolTipHandler('out', event);" onmouseover="summaryToolTipHandler('over', event);">{SalesOrderItems_count}</div></td>
+						</tr>
+						<tr id="{id}_SalesOrderSummaryView_curSubTotal">
+							<td class="SummaryCaption">{SalesOrderSummaryView_Captions.curSubTotal_Caption}</td>
+							<td class="DataItem">{[ListPanelSummary_FixedNumberRenderer(values.ordertotal,"%.2n")]}</td>
+						</tr>
+						<tr id="{id}_SalesOrderSummaryView_curGrandTotal">
+							<td class="SummaryCaption">{SalesOrderSummaryView_Captions.curGrandTotal_Caption}</td>
+							<td class="DataItem">{[ListPanelSummary_FixedNumberRenderer(values.grandtotal,"%.2n")]}</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div></tpl>
+]]></Template>
+  <WhereFormatString> mainentity.id eq '{0}'</WhereFormatString>
+</WebSummaryViewConfiguration>

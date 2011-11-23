@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebSummaryViewConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EntityType TypeName="Sage.Entity.Interfaces.IContract, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <Properties />
+  </EntityType>
+  <Query id="928f5d9e-3c9d-4a05-87e9-202fcc69b5a1" expires="0" name="ContractSummary_query">
+    <columnAliases>
+      <alias>id</alias>
+      <alias>referencenumber</alias>
+      <alias>isactive</alias>
+      <alias>startdate</alias>
+      <alias>endingdate</alias>
+      <alias>remaining</alias>
+      <alias>account_id</alias>
+      <alias>account_accountname</alias>
+      <alias>contact_id</alias>
+      <alias>contact_fullname</alias>
+      <alias>servicecode</alias>
+      <alias>servicecode_PL</alias>
+      <alias>purchasedate</alias>
+      <alias>Items_count</alias>
+      <alias>Tickets_count</alias>
+    </columnAliases>
+    <Parameters />
+    <hql>select  mainentity.id,  mainentity.ReferenceNumber,  mainentity.IsActive,  mainentity.StartDate,  mainentity.EndingDate,  mainentity.Remaining,  mainentity.Account.Id,  mainentity.Account.AccountName,  mainentity.Contact.Id,  mainentity.Contact.FullName,  mainentity.ServiceCode, pklService_picklist.Text,  mainentity.PurchaseDate, count(distinct items_.id), count(distinct tickets_.id) from Contract  mainentity  left join  mainentity.Items items_  left join  mainentity.Tickets tickets_  left join  mainentity.Account  left join  mainentity.Contact  , PickList pklService_picklist  where   mainentity.ServiceCode = pklService_picklist.ItemId group by  mainentity.id,  mainentity.ReferenceNumber,  mainentity.IsActive,  mainentity.StartDate,  mainentity.EndingDate,  mainentity.Remaining,  mainentity.Account.Id,  mainentity.Account.AccountName,  mainentity.Contact.Id,  mainentity.Contact.FullName,  mainentity.ServiceCode, pklService_picklist.Text,  mainentity.PurchaseDate</hql>
+  </Query>
+  <CollectionProperties>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="Items" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.IContract, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="b5bf9ac4-3ee3-458a-8c53-6e2041be9508" expires="0" name="ContractSummary_agcAssets_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+          <alias>asset_productname</alias>
+          <alias>asset_actualid</alias>
+          <alias>asset_serialnumber</alias>
+          <alias>asset_quantity</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select contractitem.id,contractitem.Contract.id,contractitem.Asset.ProductName,contractitem.Asset.ActualId,contractitem.Asset.SerialNumber,contractitem.Asset.Quantity from ContractItem contractitem</hql>
+      </NamedQuery>
+      <Template><![CDATA[
+<table>
+	<tpl for="items"><tpl if="xindex <= 25">
+		<tr>
+			<td class="SummaryChildrenTableCell"><span title="{asset_productname}">{asset_productname:ellipsis(20)}</span></td>
+			<td class="SummaryChildrenTableCell"><span title="{asset_actualid}">{asset_actualid:ellipsis(20)}</span></td>
+			<td class="SummaryChildrenTableCell"><span title="{asset_serialnumber}">{asset_serialnumber:ellipsis(20)}</span></td>
+			<td class="SummaryChildrenTableCell"><span title="{asset_quantity}">{asset_quantity:ellipsis(20)}</span></td>
+		</tr>
+	</tpl>
+	<tpl if="xindex == 26">
+		<tr><td class="SummaryChildrenTableCell"><span >...</span></td></tr>
+	</tpl>
+	</tpl>
+</table>
+]]></Template>
+      <WhereFormatString>contractitem.Contract.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="Tickets" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.IContract, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="ed63c764-9ba7-4a52-8f83-eff28dac46b4" expires="0" name="ContractSummary_agcTickets_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+          <alias>ticketnumber</alias>
+          <alias>area</alias>
+          <alias>category</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select ticket.id,ticket.Contract.id,ticket.TicketNumber,ticket.Area,ticket.Category from Ticket ticket</hql>
+      </NamedQuery>
+      <Template><![CDATA[
+<table>
+	<tpl for="items"><tpl if="xindex <= 25">
+		<tr>
+			<td class="SummaryChildrenTableCell"><a href="Ticket.aspx?entityid={id}&referringid={whereclauseid}"  title="{ticketnumber}">{ticketnumber:ellipsis(20)}</a></td>
+			<td class="SummaryChildrenTableCell"><span title="{area}">{area:ellipsis(20)}</span></td>
+			<td class="SummaryChildrenTableCell"><span title="{category}">{category:ellipsis(20)}</span></td>
+		</tr>
+	</tpl>
+	<tpl if="xindex == 26">
+		<tr><td class="SummaryChildrenTableCell"><span >...</span></td></tr>
+	</tpl>
+	</tpl>
+</table>
+]]></Template>
+      <WhereFormatString>ticket.Contract.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+  </CollectionProperties>
+  <Template><![CDATA[
+<tpl for="items"><div id="{id}" class="EntityCard">
+	<table>
+		<col style="width:250px" />
+		<col style="width:250px" />
+		<col style="width:250px" />
+		<thead><tr><th colspan="3">
+			<div class="SummaryTitle"><a href="Contract.aspx?entityid={id}" >{referencenumber:htmlEncode}</a></div>
+		</th></tr></thead>
+		<tbody>
+			<tr>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_ContractSummary_txtActive">
+							<td class="SummaryCaption">{ContractSummary_Captions.txtActive_Caption}</td>
+							<td class="DataItem">{isactive:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_ContractSummary_dtpStartDate">
+							<td class="SummaryCaption">{ContractSummary_Captions.dtpStartDate_Caption}</td>
+							<td class="DataItem">{startdate:date}</td>
+						</tr>
+						<tr id="{id}_ContractSummary_dteEndDate">
+							<td class="SummaryCaption">{ContractSummary_Captions.dteEndDate_Caption}</td>
+							<td class="DataItem">{endingdate:date}</td>
+						</tr>
+						<tr id="{id}_ContractSummary_curRemaining">
+							<td class="SummaryCaption">{ContractSummary_Captions.curRemaining_Caption}</td>
+							<td class="DataItem">{[ListPanelSummary_FixedNumberRenderer(values.remaining,"%.2n")]}</td>
+						</tr>
+					</table>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_ContractSummary_lnkAccount">
+							<td class="SummaryCaption">{ContractSummary_Captions.lnkAccount_Caption}</td>
+							<td class="DataItem"><a href="Account.aspx?entityid={account_id}" >{account_accountname:htmlEncode}</a></td>
+						</tr>
+						<tr id="{id}_ContractSummary_lnkContact">
+							<td class="SummaryCaption">{ContractSummary_Captions.lnkContact_Caption}</td>
+							<td class="DataItem"><a href="Contact.aspx?entityid={contact_id}" >{contact_fullname:htmlEncode}</a></td>
+						</tr>
+						<tr id="{id}_ContractSummary_pklService">
+							<td class="SummaryCaption">{ContractSummary_Captions.pklService_Caption}</td>
+							<td class="DataItem">{servicecode_PL}</td>
+						</tr>
+						<tr id="{id}_ContractSummary_dtpPurchaseDate">
+							<td class="SummaryCaption">{ContractSummary_Captions.dtpPurchaseDate_Caption}</td>
+							<td class="DataItem">{purchasedate:date}</td>
+						</tr>
+					</table>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_ContractSummary_agcAssets">
+							<td class="SummaryCaption">{ContractSummary_Captions.agcAssets_Caption}</td>
+							<td class="DataItem"><div slx:id="{id}" slx:summarymanager="{parent.summarymanager}" slx:summarychild="ContractSummary_agcAssets_query" class="hasWindow" onclick="summaryNavHandler('{id}', 'ContractCoveredAssets', event);" onmouseout="summaryToolTipHandler('out', event);" onmouseover="summaryToolTipHandler('over', event);">{Items_count}</div></td>
+						</tr>
+						<tr id="{id}_ContractSummary_agcTickets">
+							<td class="SummaryCaption">{ContractSummary_Captions.agcTickets_Caption}</td>
+							<td class="DataItem"><div slx:id="{id}" slx:summarymanager="{parent.summarymanager}" slx:summarychild="ContractSummary_agcTickets_query" class="hasWindow" onclick="summaryNavHandler('{id}', 'ContractTickets', event);" onmouseout="summaryToolTipHandler('out', event);" onmouseover="summaryToolTipHandler('over', event);">{Tickets_count}</div></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div></tpl>
+]]></Template>
+  <WhereFormatString> mainentity.id eq '{0}'</WhereFormatString>
+</WebSummaryViewConfiguration>

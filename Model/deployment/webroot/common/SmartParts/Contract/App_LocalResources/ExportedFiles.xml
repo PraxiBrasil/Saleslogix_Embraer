@@ -1,0 +1,15 @@
+﻿<?xml version="1.0"?>
+<exportedFiles>
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contract\App_LocalResources\ContractComments.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:11.2030" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contract\App_LocalResources\ContractComments.ascx.resx" timeStamp="2011-09-16T19:03:11.2030" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contract\App_LocalResources\ContractCoveredAssets.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:11.2230" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contract\App_LocalResources\ContractCoveredAssets.ascx.resx" timeStamp="2011-09-16T19:03:11.2230" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contract\App_LocalResources\ContractDetail.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:11.2730" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contract\App_LocalResources\ContractDetail.ascx.resx" timeStamp="2011-09-16T19:03:11.2730" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contract\App_LocalResources\ContractReferenceDuplicate.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:11.3130" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contract\App_LocalResources\ContractReferenceDuplicate.ascx.resx" timeStamp="2011-09-16T19:03:11.3230" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contract\App_LocalResources\ContractTickets.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:11.3530" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contract\App_LocalResources\ContractTickets.ascx.resx" timeStamp="2011-09-16T19:03:11.3530" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contract\App_LocalResources\InsertContract.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:11.4130" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contract\App_LocalResources\InsertContract.ascx.resx" timeStamp="2011-09-16T19:03:11.4130" />
+</exportedFiles>

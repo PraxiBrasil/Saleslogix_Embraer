@@ -1,0 +1,20 @@
+﻿<?xml version="1.0"?>
+<exportedFiles>
+  <exportedFile url="\deployment\webroot\common\bin\Sage.Entity.Interfaces.dll" timeStamp="2011-11-23T19:45:54.4970" />
+  <exportedFile url="\deployment\webroot\common\bin\Sage.Form.Interfaces.dll" timeStamp="2011-11-23T20:20:23.2300" />
+  <exportedFile url="\deployment\webroot\common\bin\Sage.Integration.Entity.Feeds.dll" timeStamp="2011-11-23T19:46:13.4330" />
+  <exportedFile url="\deployment\webroot\common\bin\Sage.Integration.Entity.Feeds.pdb" timeStamp="2011-11-23T19:46:13.3830" />
+  <exportedFile url="\deployment\webroot\common\bin\Sage.ProcessOrchestration.dll" timeStamp="2011-11-23T14:31:38.1330" />
+  <exportedFile url="\deployment\webroot\common\bin\Sage.ProcessOrchestration.pdb" timeStamp="2011-11-23T14:31:38.0930" />
+  <exportedFile url="\deployment\webroot\common\bin\Sage.SalesLogix.Activity.Entities.dll" timeStamp="2011-11-23T14:31:39.7330" />
+  <exportedFile url="\deployment\webroot\common\bin\Sage.SalesLogix.Activity.Entities.pdb" timeStamp="2011-11-23T14:31:39.6830" />
+  <exportedFile url="\deployment\webroot\common\bin\Sage.SalesLogix.Entities.dll" timeStamp="2011-11-23T19:46:21.7230" />
+  <exportedFile url="\deployment\webroot\common\bin\Sage.SalesLogix.Entities.pdb" timeStamp="2011-11-23T19:46:21.6330" />
+  <exportedFile url="\deployment\webroot\common\bin\Sage.SalesLogix.Security.Entities.dll" timeStamp="2011-11-23T19:46:23.1470" />
+  <exportedFile url="\deployment\webroot\common\bin\Sage.SalesLogix.Security.Entities.pdb" timeStamp="2011-11-23T19:46:23.0870" />
+  <exportedFile url="\deployment\webroot\common\bin\Sage.SalesLogix.SpeedSearch.dll" timeStamp="2011-11-23T14:32:53.6400" />
+  <exportedFile url="\deployment\webroot\common\bin\Sage.SalesLogix.SpeedSearch.pdb" timeStamp="2011-11-23T14:32:53.6000" />
+  <exportedFile url="\deployment\webroot\common\bin\Sage.SnippetLibrary.CSharp.dll" timeStamp="2011-11-23T20:20:35.1170" />
+  <exportedFile url="\deployment\webroot\common\bin\Sage.SnippetLibrary.CSharp.pdb" timeStamp="2011-11-23T20:20:35.0670" />
+  <exportedFile url="\deployment\webroot\common\bin\pt-BR\" />
+</exportedFiles>

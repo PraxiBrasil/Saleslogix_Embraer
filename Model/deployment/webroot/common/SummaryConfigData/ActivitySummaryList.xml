@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebSummaryViewConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EntityType TypeName="Sage.Entity.Interfaces.IActivity, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <Properties />
+  </EntityType>
+  <Query id="f7322662-2e3b-48e2-b519-8f88e69bd292" expires="0" name="ActivitySummaryList_query">
+    <columnAliases>
+      <alias>id</alias>
+      <alias>startdate</alias>
+      <alias>type</alias>
+      <alias>recurring</alias>
+      <alias>timeless</alias>
+      <alias>contactid</alias>
+      <alias>contactname</alias>
+      <alias>leadid</alias>
+      <alias>leadname</alias>
+      <alias>phonenumber</alias>
+      <alias>accountid</alias>
+      <alias>accountname</alias>
+      <alias>alarm</alias>
+      <alias>description</alias>
+      <alias>duration</alias>
+      <alias>attachment</alias>
+      <alias>txtLeader_userid</alias>
+      <alias>priority</alias>
+      <alias>opportunityid</alias>
+      <alias>opportunityname</alias>
+      <alias>ticketid</alias>
+      <alias>ticketnumber</alias>
+      <alias>userid</alias>
+      <alias>notes</alias>
+    </columnAliases>
+    <Parameters />
+    <hql>select  mainentity.id,  mainentity.StartDate,  mainentity.Type,  mainentity.Recurring,  mainentity.Timeless,  mainentity.ContactId,  mainentity.ContactName,  mainentity.LeadId,  mainentity.LeadName,  mainentity.PhoneNumber,  mainentity.AccountId,  mainentity.AccountName,  mainentity.Alarm,  mainentity.Description,  mainentity.Duration,  mainentity.Attachment, txtLeader.UserInfo.UserName,  mainentity.Priority,  mainentity.OpportunityId,  mainentity.OpportunityName,  mainentity.TicketId,  mainentity.TicketNumber,  mainentity.UserId,  mainentity.Notes from Activity  mainentity  , User as txtLeader  where   mainentity.UserId = txtLeader.id</hql>
+  </Query>
+  <CollectionProperties />
+  <Template><![CDATA[
+<tpl for="items"><div id="{id}" class="EntityCard">
+	<table style="width:100%">
+		<col style="width:33.33333%" />
+		<col style="width:33.33333%" />
+		<col style="width:33.33333%" />
+		<thead><tr><th colspan="3">
+			<div class="SummaryTitle">{[buildHeader(values)]}</div>
+		</th></tr></thead>
+		<tbody>
+			<tr>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_ActivitySummaryList_txtStartTime">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.txtStartTime_Caption}</td>
+							<td class="DataItem">{[formatDateTimeSummary(values)]}</td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_txtDuration">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.txtDuration_Caption}</td>
+							<td class="DataItem">{[formatDurationLong(values)]}</td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_dtpStartTime" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.dtpStartTime_Caption}</td>
+							<td class="DataItem">{[ListPanel_RenderDateOnly(values.startdate)]}</td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_txtType" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.txtType_Caption}</td>
+							<td class="DataItem">{type:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_txtRecurring" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.txtRecurring_Caption}</td>
+							<td class="DataItem">{recurring:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_txtTimeless" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.txtTimeless_Caption}</td>
+							<td class="DataItem">{timeless:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_lblPostRenderScript" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.lblPostRenderScript_Caption}</td>
+							<td class="DataItem">{[PostRenderScript(values)]}</td>
+						</tr>
+					</table>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_ActivitySummaryList_txtContactName" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.txtContactName_Caption}</td>
+							<td class="DataItem"><a href="Contact.aspx?entityid={contactid}" >{contactname:htmlEncode}</a></td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_txtLeadName" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.txtLeadName_Caption}</td>
+							<td class="DataItem"><a href="Lead.aspx?entityid={leadid}" >{leadname:htmlEncode}</a></td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_txtPhone" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.txtPhone_Caption}</td>
+							<td class="DataItem">{[LiveGrid_RenderPhoneNumber(values.phonenumber)]}</td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_txtAccount" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.txtAccount_Caption}</td>
+							<td class="DataItem"><a href="Account.aspx?entityid={accountid}" >{accountname:htmlEncode}</a></td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_txtLeadCompany" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.txtLeadCompany_Caption}</td>
+							<td class="DataItem">{accountname:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_txtAlarm" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.txtAlarm_Caption}</td>
+							<td class="DataItem">{alarm:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_txtContactId" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.txtContactId_Caption}</td>
+							<td class="DataItem">{contactid:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_txtDescription" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.txtDescription_Caption}</td>
+							<td class="DataItem">{description:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_hdnDuration" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.hdnDuration_Caption}</td>
+							<td class="DataItem">{duration:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_hdnAttachment" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.hdnAttachment_Caption}</td>
+							<td class="DataItem">{attachment:htmlEncode}</td>
+						</tr>
+					</table>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_ActivitySummaryList_txtLeader">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.txtLeader_Caption}</td>
+							<td class="DataItem">{txtLeader_userid}</td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_txtPriority" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.txtPriority_Caption}</td>
+							<td class="DataItem">{priority:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_txtOpportunityName" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.txtOpportunityName_Caption}</td>
+							<td class="DataItem"><a href="Opportunity.aspx?entityid={opportunityid}" >{opportunityname:htmlEncode}</a></td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_txtTicketNumber" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.txtTicketNumber_Caption}</td>
+							<td class="DataItem"><a href="Ticket.aspx?entityid={ticketid}" >{ticketnumber:htmlEncode}</a></td>
+						</tr>
+						<tr id="{id}_ActivitySummaryList_txtUserId" class="x-hide-display">
+							<td class="SummaryCaption">{ActivitySummaryList_Captions.txtUserId_Caption}</td>
+							<td class="DataItem">{userid:htmlEncode}</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+			<tr id="{id}_txtNotes" ><td colspan="3">
+				<div class="SummaryFooter">{notes:htmlEncode}</div>
+			</td></tr>
+		</tbody>
+	</table>
+</div></tpl>
+]]></Template>
+  <WhereFormatString> mainentity.id eq '{0}'</WhereFormatString>
+</WebSummaryViewConfiguration>

@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebSummaryViewConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EntityType TypeName="Sage.Entity.Interfaces.ICampaign, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <Properties />
+  </EntityType>
+  <Query id="69c0e093-2cfd-4ed1-b07e-761be2525389" expires="0" name="CampaignSummary_query">
+    <columnAliases>
+      <alias>id</alias>
+      <alias>campaignname</alias>
+      <alias>status</alias>
+      <alias>startdate</alias>
+      <alias>enddate</alias>
+      <alias>owner_ownerdescription</alias>
+      <alias>accountmanager_userinfo_username</alias>
+      <alias>forecastbudget</alias>
+      <alias>CampaignTargets_count</alias>
+      <alias>Opportunities_count</alias>
+      <alias>CampaignResponses_count</alias>
+    </columnAliases>
+    <Parameters />
+    <hql>select  mainentity.id,  mainentity.CampaignName,  mainentity.Status,  mainentity.StartDate,  mainentity.EndDate,  mainentity.Owner.OwnerDescription,  mainentity.AccountManager.UserInfo.UserName,  mainentity.ForecastBudget, count(distinct campaigntargets_.id), count(distinct opportunities_.id), count(distinct campaignresponses_.id) from Campaign  mainentity  left join  mainentity.CampaignTargets campaigntargets_  left join  mainentity.Opportunities opportunities_  left join  mainentity.CampaignResponses campaignresponses_  left join  mainentity.Owner  left join  mainentity.AccountManager  group by  mainentity.id,  mainentity.CampaignName,  mainentity.Status,  mainentity.StartDate,  mainentity.EndDate,  mainentity.Owner.OwnerDescription,  mainentity.AccountManager.UserInfo.UserName,  mainentity.ForecastBudget</hql>
+  </Query>
+  <CollectionProperties>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="CampaignTargets" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.ICampaign, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="681150fe-7c0c-45ee-9c33-65d0f8d1733d" expires="0" name="CampaignSummary_agcTargets_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select campaigntarget.id,campaigntarget.Campaign.id from CampaignTarget campaigntarget</hql>
+      </NamedQuery>
+      <Template><![CDATA[
+<table>
+	<tpl for="items"><tpl if="xindex <= 25">
+		<tr>
+		</tr>
+	</tpl>
+	<tpl if="xindex == 26">
+		<tr><td class="SummaryChildrenTableCell"><span >...</span></td></tr>
+	</tpl>
+	</tpl>
+</table>
+]]></Template>
+      <WhereFormatString>campaigntarget.Campaign.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="Opportunities" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.ICampaign, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="17c63f0f-849f-4653-9148-124517a3f173" expires="0" name="CampaignSummary_agcOpportunities_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+          <alias>opportunity_description</alias>
+          <alias>opportunity_account_accountname</alias>
+          <alias>opportunity_account_id</alias>
+          <alias>opportunity_salespotential</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select opportunitycampaign.id,opportunitycampaign.Campaign.id,opportunitycampaign.Opportunity.Description,opportunitycampaign.Opportunity.Account.AccountName,opportunitycampaign.Opportunity.Account.Id,opportunitycampaign.Opportunity.SalesPotential from OpportunityCampaign opportunitycampaign</hql>
+      </NamedQuery>
+      <Template><![CDATA[
+<table>
+	<tpl for="items"><tpl if="xindex <= 25">
+		<tr>
+			<td class="SummaryChildrenTableCell"><a href="Opportunity.aspx?entityid={id}&referringid={whereclauseid}"  title="{opportunity_description}">{opportunity_description:ellipsis(20)}</a></td>
+			<td class="SummaryChildrenTableCell"><a href="Account.aspx?entityid={opportunity_account_id}&referringid={whereclauseid}"  title="{opportunity_account_accountname}">{opportunity_account_accountname:ellipsis(20)}</a></td>
+			<td class="SummaryChildrenTableCell"><span title="{opportunity_salespotential}">{opportunity_salespotential:ellipsis(20)}</span></td>
+		</tr>
+	</tpl>
+	<tpl if="xindex == 26">
+		<tr><td class="SummaryChildrenTableCell"><span >...</span></td></tr>
+	</tpl>
+	</tpl>
+</table>
+]]></Template>
+      <WhereFormatString>opportunitycampaign.Campaign.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="CampaignResponses" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.ICampaign, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="09be7677-d2ad-4694-9d7d-71d244b6f76d" expires="0" name="CampaignSummary_agcResponses_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select targetresponse.id,targetresponse.Campaign.id from TargetResponse targetresponse</hql>
+      </NamedQuery>
+      <Template><![CDATA[
+<table>
+	<tpl for="items"><tpl if="xindex <= 25">
+		<tr>
+		</tr>
+	</tpl>
+	<tpl if="xindex == 26">
+		<tr><td class="SummaryChildrenTableCell"><span >...</span></td></tr>
+	</tpl>
+	</tpl>
+</table>
+]]></Template>
+      <WhereFormatString>targetresponse.Campaign.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+  </CollectionProperties>
+  <Template><![CDATA[
+<tpl for="items"><div id="{id}" class="EntityCard">
+	<table style="width:100%">
+		<col style="width:33%" />
+		<col style="width:33%" />
+		<col style="width:33%" />
+		<thead><tr><th colspan="3">
+			<div class="SummaryTitle"><a href="Campaign.aspx?entityid={id}" >{campaignname:htmlEncode}</a></div>
+		</th></tr></thead>
+		<tbody>
+			<tr>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_CampaignSummary_txtStatus">
+							<td class="SummaryCaption">{CampaignSummary_Captions.txtStatus_Caption}</td>
+							<td class="DataItem">{status:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_CampaignSummary_dtpStartDate">
+							<td class="SummaryCaption">{CampaignSummary_Captions.dtpStartDate_Caption}</td>
+							<td class="DataItem">{[ListPanel_RenderDateOnly(values.startdate)]}</td>
+						</tr>
+						<tr id="{id}_CampaignSummary_dtpEndDate">
+							<td class="SummaryCaption">{CampaignSummary_Captions.dtpEndDate_Caption}</td>
+							<td class="DataItem">{[ListPanel_RenderDateOnly(values.enddate)]}</td>
+						</tr>
+					</table>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_CampaignSummary_txtOwner">
+							<td class="SummaryCaption">{CampaignSummary_Captions.txtOwner_Caption}</td>
+							<td class="DataItem">{owner_ownerdescription:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_CampaignSummary_txtManager">
+							<td class="SummaryCaption">{CampaignSummary_Captions.txtManager_Caption}</td>
+							<td class="DataItem">{accountmanager_userinfo_username:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_CampaignSummary_curBudget">
+							<td class="SummaryCaption">{CampaignSummary_Captions.curBudget_Caption}</td>
+							<td class="DataItem">{[ListPanelSummary_FixedNumberRenderer(values.forecastbudget,"%.2n")]}</td>
+						</tr>
+					</table>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_CampaignSummary_agcTargets">
+							<td class="SummaryCaption">{CampaignSummary_Captions.agcTargets_Caption}</td>
+							<td class="DataItem"><div slx:id="{id}" slx:summarymanager="{parent.summarymanager}" slx:summarychild="CampaignSummary_agcTargets_query" class="hasWindow" onclick="summaryNavHandler('{id}', 'CampaignTargets', event);" >{CampaignTargets_count}</div></td>
+						</tr>
+						<tr id="{id}_CampaignSummary_agcOpportunities">
+							<td class="SummaryCaption">{CampaignSummary_Captions.agcOpportunities_Caption}</td>
+							<td class="DataItem"><div slx:id="{id}" slx:summarymanager="{parent.summarymanager}" slx:summarychild="CampaignSummary_agcOpportunities_query" class="hasWindow" onclick="summaryNavHandler('{id}', 'CampaignOpportunities', event);" onmouseout="summaryToolTipHandler('out', event);" onmouseover="summaryToolTipHandler('over', event);">{Opportunities_count}</div></td>
+						</tr>
+						<tr id="{id}_CampaignSummary_agcResponses">
+							<td class="SummaryCaption">{CampaignSummary_Captions.agcResponses_Caption}</td>
+							<td class="DataItem"><div slx:id="{id}" slx:summarymanager="{parent.summarymanager}" slx:summarychild="CampaignSummary_agcResponses_query" class="hasWindow" onclick="summaryNavHandler('{id}', 'TargetResponses', event);" >{CampaignResponses_count}</div></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div></tpl>
+]]></Template>
+  <WhereFormatString> mainentity.id eq '{0}'</WhereFormatString>
+</WebSummaryViewConfiguration>

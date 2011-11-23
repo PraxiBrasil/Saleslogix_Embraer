@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebSummaryViewConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EntityType TypeName="Sage.Entity.Interfaces.IReturn, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <Properties />
+  </EntityType>
+  <Query id="ad60cc19-e3ea-4780-a15f-f722d9661106" expires="0" name="ReturnSummary_query">
+    <columnAliases>
+      <alias>id</alias>
+      <alias>returnnumber</alias>
+      <alias>status</alias>
+      <alias>priority</alias>
+      <alias>expecteddate</alias>
+      <alias>ticket_id</alias>
+      <alias>ticket_ticketnumber</alias>
+      <alias>account_id</alias>
+      <alias>account_accountname</alias>
+      <alias>returnedby_id</alias>
+      <alias>returnedby_fullname</alias>
+      <alias>assignedto_ownerdescription</alias>
+      <alias>assigneddate</alias>
+      <alias>ReturnShippedProducts_count</alias>
+      <alias>ReturnReceivedProducts_count</alias>
+    </columnAliases>
+    <Parameters />
+    <hql>select  mainentity.id,  mainentity.ReturnNumber,  mainentity.Status,  mainentity.Priority,  mainentity.ExpectedDate,  mainentity.Ticket.Id,  mainentity.Ticket.TicketNumber,  mainentity.Account.Id,  mainentity.Account.AccountName,  mainentity.ReturnedBy.Id,  mainentity.ReturnedBy.FullName,  mainentity.AssignedTo.OwnerDescription,  mainentity.AssignedDate, count(distinct returnshippedproducts_.id), count(distinct returnreceivedproducts_.id) from Return  mainentity  left join  mainentity.ReturnShippedProducts returnshippedproducts_  left join  mainentity.ReturnReceivedProducts returnreceivedproducts_  left join  mainentity.Ticket  left join  mainentity.Account  left join  mainentity.ReturnedBy  left join  mainentity.AssignedTo  group by  mainentity.id,  mainentity.ReturnNumber,  mainentity.Status,  mainentity.Priority,  mainentity.ExpectedDate,  mainentity.Ticket.Id,  mainentity.Ticket.TicketNumber,  mainentity.Account.Id,  mainentity.Account.AccountName,  mainentity.ReturnedBy.Id,  mainentity.ReturnedBy.FullName,  mainentity.AssignedTo.OwnerDescription,  mainentity.AssignedDate</hql>
+  </Query>
+  <CollectionProperties>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="ReturnShippedProducts" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.IReturn, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="ca23f104-4a01-4281-b4ac-48a8e623fd14" expires="0" name="ReturnSummary_agcShipped_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+          <alias>product_name</alias>
+          <alias>accountproduct_actualid</alias>
+          <alias>accountproduct_serialnumber</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select returnshippedproduct.id,returnshippedproduct.Return.id,returnshippedproduct.Product.Name,returnshippedproduct.AccountProduct.ActualId,returnshippedproduct.AccountProduct.SerialNumber from ReturnShippedProduct returnshippedproduct</hql>
+      </NamedQuery>
+      <Template><![CDATA[
+<table>
+	<tpl for="items"><tpl if="xindex <= 25">
+		<tr>
+			<td class="SummaryChildrenTableCell"><span title="{product_name}">{product_name:ellipsis(20)}</span></td>
+			<td class="SummaryChildrenTableCell"><span title="{accountproduct_actualid}">{accountproduct_actualid:ellipsis(20)}</span></td>
+			<td class="SummaryChildrenTableCell"><span title="{accountproduct_serialnumber}">{accountproduct_serialnumber:ellipsis(20)}</span></td>
+		</tr>
+	</tpl>
+	<tpl if="xindex == 26">
+		<tr><td class="SummaryChildrenTableCell"><span >...</span></td></tr>
+	</tpl>
+	</tpl>
+</table>
+]]></Template>
+      <WhereFormatString>returnshippedproduct.Return.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="ReturnReceivedProducts" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.IReturn, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="a9c2a26d-0244-475c-b79f-8f39309e4d63" expires="0" name="ReturnSummary_agcReturned_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+          <alias>accountproduct_productname</alias>
+          <alias>accountproduct_actualid</alias>
+          <alias>accountproduct_serialnumber</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select returnreceivedproduct.id,returnreceivedproduct.Return.id,returnreceivedproduct.AccountProduct.ProductName,returnreceivedproduct.AccountProduct.ActualId,returnreceivedproduct.AccountProduct.SerialNumber from ReturnReceivedProduct returnreceivedproduct</hql>
+      </NamedQuery>
+      <Template><![CDATA[
+<table>
+	<tpl for="items"><tpl if="xindex <= 25">
+		<tr>
+			<td class="SummaryChildrenTableCell"><span title="{accountproduct_productname}">{accountproduct_productname:ellipsis(20)}</span></td>
+			<td class="SummaryChildrenTableCell"><span title="{accountproduct_actualid}">{accountproduct_actualid:ellipsis(20)}</span></td>
+			<td class="SummaryChildrenTableCell"><span title="{accountproduct_serialnumber}">{accountproduct_serialnumber:ellipsis(20)}</span></td>
+		</tr>
+	</tpl>
+	<tpl if="xindex == 26">
+		<tr><td class="SummaryChildrenTableCell"><span >...</span></td></tr>
+	</tpl>
+	</tpl>
+</table>
+]]></Template>
+      <WhereFormatString>returnreceivedproduct.Return.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+  </CollectionProperties>
+  <Template><![CDATA[
+<tpl for="items"><div id="{id}" class="EntityCard">
+	<table>
+		<col style="width:250px" />
+		<col style="width:250px" />
+		<col style="width:250px" />
+		<thead><tr><th colspan="3">
+			<div class="SummaryTitle"><a href="Return.aspx?entityid={id}" >{returnnumber:htmlEncode}</a></div>
+		</th></tr></thead>
+		<tbody>
+			<tr>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_ReturnSummary_pklStatus">
+							<td class="SummaryCaption">{ReturnSummary_Captions.pklStatus_Caption}</td>
+							<td class="DataItem">{status}</td>
+						</tr>
+						<tr id="{id}_ReturnSummary_pklPriority">
+							<td class="SummaryCaption">{ReturnSummary_Captions.pklPriority_Caption}</td>
+							<td class="DataItem">{priority}</td>
+						</tr>
+						<tr id="{id}_ReturnSummary_dtpExpectedBy">
+							<td class="SummaryCaption">{ReturnSummary_Captions.dtpExpectedBy_Caption}</td>
+							<td class="DataItem">{[ListPanel_RenderDateOnly(values.expecteddate)]}</td>
+						</tr>
+						<tr id="{id}_ReturnSummary_lnkTicket">
+							<td class="SummaryCaption">{ReturnSummary_Captions.lnkTicket_Caption}</td>
+							<td class="DataItem"><a href="Ticket.aspx?entityid={ticket_id}" >{ticket_ticketnumber:htmlEncode}</a></td>
+						</tr>
+					</table>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_ReturnSummary_lnkAccount">
+							<td class="SummaryCaption">{ReturnSummary_Captions.lnkAccount_Caption}</td>
+							<td class="DataItem"><a href="Account.aspx?entityid={account_id}" >{account_accountname:htmlEncode}</a></td>
+						</tr>
+						<tr id="{id}_ReturnSummary_lnkContact">
+							<td class="SummaryCaption">{ReturnSummary_Captions.lnkContact_Caption}</td>
+							<td class="DataItem"><a href="Contact.aspx?entityid={returnedby_id}" >{returnedby_fullname:htmlEncode}</a></td>
+						</tr>
+						<tr id="{id}_ReturnSummary_ownAssignedTo">
+							<td class="SummaryCaption">{ReturnSummary_Captions.ownAssignedTo_Caption}</td>
+							<td class="DataItem">{assignedto_ownerdescription:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_ReturnSummary_dtpAssignedDate">
+							<td class="SummaryCaption">{ReturnSummary_Captions.dtpAssignedDate_Caption}</td>
+							<td class="DataItem">{assigneddate:date}</td>
+						</tr>
+					</table>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_ReturnSummary_agcShipped">
+							<td class="SummaryCaption">{ReturnSummary_Captions.agcShipped_Caption}</td>
+							<td class="DataItem"><div slx:id="{id}" slx:summarymanager="{parent.summarymanager}" slx:summarychild="ReturnSummary_agcShipped_query" class="hasWindow" onclick="summaryNavHandler('{id}', 'ReturnShipToDetail', event);" onmouseout="summaryToolTipHandler('out', event);" onmouseover="summaryToolTipHandler('over', event);">{ReturnShippedProducts_count}</div></td>
+						</tr>
+						<tr id="{id}_ReturnSummary_agcReturned">
+							<td class="SummaryCaption">{ReturnSummary_Captions.agcReturned_Caption}</td>
+							<td class="DataItem"><div slx:id="{id}" slx:summarymanager="{parent.summarymanager}" slx:summarychild="ReturnSummary_agcReturned_query" class="hasWindow" onclick="summaryNavHandler('{id}', 'ReturnShipToDetail', event);" onmouseout="summaryToolTipHandler('out', event);" onmouseover="summaryToolTipHandler('over', event);">{ReturnReceivedProducts_count}</div></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div></tpl>
+]]></Template>
+  <WhereFormatString> mainentity.id eq '{0}'</WhereFormatString>
+</WebSummaryViewConfiguration>

@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebSummaryViewConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EntityType TypeName="Sage.Entity.Interfaces.IUser, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <Properties />
+  </EntityType>
+  <Query id="5abdfb94-0204-4436-9317-6e377e4cbff8" expires="0" name="UserSummaryView_query">
+    <columnAliases>
+      <alias>id</alias>
+      <alias>userinfo_username</alias>
+      <alias>userinfo_address_address1</alias>
+      <alias>userinfo_address_citystatezip</alias>
+      <alias>userinfo_phone</alias>
+      <alias>userinfo_email</alias>
+      <alias>username</alias>
+      <alias>type</alias>
+      <alias>userinfo_title</alias>
+      <alias>txtManager_managerid</alias>
+      <alias>primarysite</alias>
+      <alias>userinfo_region</alias>
+      <alias>userinfo_division</alias>
+      <alias>userinfo_department</alias>
+    </columnAliases>
+    <Parameters />
+    <hql>select  mainentity.id,  mainentity.UserInfo.UserName,  mainentity.UserInfo.Address.Address1,  mainentity.UserInfo.Address.CityStateZip,  mainentity.UserInfo.Phone,  mainentity.UserInfo.Email,  mainentity.UserName,  mainentity.Type,  mainentity.UserInfo.Title, txtManager.UserInfo.UserName,  mainentity.PrimarySite,  mainentity.UserInfo.Region,  mainentity.UserInfo.Division,  mainentity.UserInfo.Department from User  mainentity  left join  mainentity.UserInfo  , User as txtManager  where   mainentity.ManagerId = txtManager.id</hql>
+  </Query>
+  <CollectionProperties />
+  <Template><![CDATA[
+<tpl for="items"><div id="{id}" class="EntityCard">
+	<table style="width:100%">
+		<col style="width:33.33333%" />
+		<col style="width:33.33333%" />
+		<col style="width:33.33333%" />
+		<thead><tr><th colspan="3">
+			<div class="SummaryTitle">{userinfo_username:htmlEncode}</div>
+		</th></tr></thead>
+		<tbody>
+			<tr>
+				<td class="DataColumn">
+					<ul>
+						<li id="{id}_UserSummaryView_tbAddress1"><span>{userinfo_address_address1:htmlEncode}</span></li>
+						<li id="{id}_UserSummaryView_tbCityStateZip"><span>{userinfo_address_citystatezip:htmlEncode}</span></li>
+						<li id="{id}_UserSummaryView_phPhone"><span>{[LiveGrid_RenderPhoneNumber(values.userinfo_phone)]}</span></li>
+						<li id="{id}_UserSummaryView_emEmail"><span><a href="mailto:{userinfo_email}">{userinfo_email:htmlEncode}</a></span></li>
+					</ul>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_UserSummaryView_lnkUserName">
+							<td class="SummaryCaption">{UserSummaryView_Captions.lnkUserName_Caption}</td>
+							<td class="DataItem"><a href="User.aspx?entityid={id}" >{username:htmlEncode}</a></td>
+						</tr>
+						<tr id="{id}_UserSummaryView_QFTextBox">
+							<td class="SummaryCaption">{UserSummaryView_Captions.QFTextBox_Caption}</td>
+							<td class="DataItem">{type:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_UserSummaryView_Title">
+							<td class="SummaryCaption">{UserSummaryView_Captions.Title_Caption}</td>
+							<td class="DataItem">{userinfo_title:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_UserSummaryView_txtManager">
+							<td class="SummaryCaption">{UserSummaryView_Captions.txtManager_Caption}</td>
+							<td class="DataItem">{txtManager_managerid}</td>
+						</tr>
+					</table>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_UserSummaryView_PrimarySite">
+							<td class="SummaryCaption">{UserSummaryView_Captions.PrimarySite_Caption}</td>
+							<td class="DataItem">{primarysite:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_UserSummaryView_QFTextBox2">
+							<td class="SummaryCaption">{UserSummaryView_Captions.QFTextBox2_Caption}</td>
+							<td class="DataItem">{userinfo_region:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_UserSummaryView_QFTextBox3">
+							<td class="SummaryCaption">{UserSummaryView_Captions.QFTextBox3_Caption}</td>
+							<td class="DataItem">{userinfo_division:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_UserSummaryView_Department">
+							<td class="SummaryCaption">{UserSummaryView_Captions.Department_Caption}</td>
+							<td class="DataItem">{userinfo_department:htmlEncode}</td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div></tpl>
+]]></Template>
+  <WhereFormatString> mainentity.id eq '{0}'</WhereFormatString>
+</WebSummaryViewConfiguration>

@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebSummaryViewConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EntityType TypeName="Sage.Entity.Interfaces.IAccount, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <Properties />
+  </EntityType>
+  <Query id="6b3b6f4d-1a7f-4771-92ec-71226b5bcb84" expires="0" name="AccountSummaryView_query">
+    <columnAliases>
+      <alias>id</alias>
+      <alias>accountname</alias>
+      <alias>address_address1</alias>
+      <alias>address_citystatezip</alias>
+      <alias>mainphone</alias>
+      <alias>webaddress</alias>
+      <alias>accountmanager_userinfo_username</alias>
+      <alias>type</alias>
+      <alias>subtype</alias>
+      <alias>industry</alias>
+      <alias>Contacts_count</alias>
+      <alias>Opportunities_count</alias>
+      <alias>Tickets_count</alias>
+    </columnAliases>
+    <Parameters />
+    <hql>select  mainentity.id,  mainentity.AccountName,  mainentity.Address.Address1,  mainentity.Address.CityStateZip,  mainentity.MainPhone,  mainentity.WebAddress,  mainentity.AccountManager.UserInfo.UserName,  mainentity.Type,  mainentity.SubType,  mainentity.Industry, count(distinct contacts_.id), count(distinct opportunities_.id), count(distinct tickets_.id) from Account  mainentity  left join  mainentity.Contacts contacts_  left join  mainentity.Opportunities opportunities_  left join  mainentity.Tickets tickets_  left join  mainentity.Address  left join  mainentity.AccountManager  group by  mainentity.id,  mainentity.AccountName,  mainentity.Address.Address1,  mainentity.Address.CityStateZip,  mainentity.MainPhone,  mainentity.WebAddress,  mainentity.AccountManager.UserInfo.UserName,  mainentity.Type,  mainentity.SubType,  mainentity.Industry</hql>
+  </Query>
+  <CollectionProperties>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="Contacts" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.IAccount, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="24d86e09-2662-4316-9701-a44b76d0d72f" expires="0" name="AccountSummaryView_agcContacts_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+          <alias>name</alias>
+          <alias>workphone</alias>
+          <alias>email</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select contact.id,contact.Account.id,contact.Name,contact.WorkPhone,contact.Email from Contact contact</hql>
+      </NamedQuery>
+      <Template><![CDATA[
+<table>
+	<tpl for="items"><tpl if="xindex <= 25">
+		<tr>
+			<td class="SummaryChildrenTableCell"><a href="Contact.aspx?entityid={id}&referringid={whereclauseid}"  title="{name}">{name:ellipsis(20)}</a></td>
+			<td class="SummaryChildrenTableCell">{[LiveGrid_RenderPhoneNumber(values.workphone)]}</td>
+			<td class="SummaryChildrenTableCell"><tpl if="email"><a href="mailto:{email}"><img src="ImageResource.axd?scope=global&type=Global_Images&key=Send_Write_email_16x16" /></a></tpl></td>
+		</tr>
+	</tpl>
+	<tpl if="xindex == 26">
+		<tr><td class="SummaryChildrenTableCell"><span >...</span></td></tr>
+	</tpl>
+	</tpl>
+</table>
+]]></Template>
+      <WhereFormatString>contact.Account.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="Opportunities" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.IAccount, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="e94190df-d4f5-4f12-a078-e470e243a5ce" expires="0" name="AccountSummaryView_agcOpportunities_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+          <alias>description</alias>
+          <alias>status</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select opportunity.id,opportunity.Account.id,opportunity.Description,opportunity.Status from Opportunity opportunity</hql>
+      </NamedQuery>
+      <Template><![CDATA[
+<table>
+	<tpl for="items"><tpl if="xindex <= 25">
+		<tr>
+			<td class="SummaryChildrenTableCell"><a href="Opportunity.aspx?entityid={id}&referringid={whereclauseid}"  title="{description}">{description:ellipsis(20)}</a></td>
+			<td class="SummaryChildrenTableCell"><span title="{status}">{status:ellipsis(20)}</span></td>
+		</tr>
+	</tpl>
+	<tpl if="xindex == 26">
+		<tr><td class="SummaryChildrenTableCell"><span >...</span></td></tr>
+	</tpl>
+	</tpl>
+</table>
+]]></Template>
+      <WhereFormatString>opportunity.Account.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="Tickets" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.IAccount, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="e5d83346-d657-47be-8a47-52666c862f68" expires="0" name="AccountSummaryView_agcTickets_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+          <alias>ticketnumber</alias>
+          <alias>area</alias>
+          <alias>category</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select ticket.id,ticket.Account.id,ticket.TicketNumber,ticket.Area,ticket.Category from Ticket ticket</hql>
+      </NamedQuery>
+      <Template><![CDATA[
+<table>
+	<tpl for="items"><tpl if="xindex <= 25">
+		<tr>
+			<td class="SummaryChildrenTableCell"><a href="Ticket.aspx?entityid={id}&referringid={whereclauseid}"  title="{ticketnumber}">{ticketnumber:ellipsis(20)}</a></td>
+			<td class="SummaryChildrenTableCell"><span title="{area}">{area:ellipsis(20)}</span></td>
+			<td class="SummaryChildrenTableCell"><span title="{category}">{category:ellipsis(20)}</span></td>
+		</tr>
+	</tpl>
+	<tpl if="xindex == 26">
+		<tr><td class="SummaryChildrenTableCell"><span >...</span></td></tr>
+	</tpl>
+	</tpl>
+</table>
+]]></Template>
+      <WhereFormatString>ticket.Account.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+  </CollectionProperties>
+  <Template><![CDATA[
+<tpl for="items"><div id="{id}" class="EntityCard">
+	<table>
+		<col style="width:150px" />
+		<col style="width:250px" />
+		<col />
+		<thead><tr><th colspan="3">
+			<div class="SummaryTitle"><a href="Account.aspx?entityid={id}" >{accountname:htmlEncode}</a></div>
+		</th></tr></thead>
+		<tbody>
+			<tr>
+				<td class="DataColumn">
+					<ul>
+						<li id="{id}_AccountSummaryView_txtAddress1"><span>{address_address1:htmlEncode}</span></li>
+						<li id="{id}_AccountSummaryView_txtCityStateZip"><span>{address_citystatezip:htmlEncode}</span></li>
+						<li id="{id}_AccountSummaryView_txtPhone"><span>{[LiveGrid_RenderPhoneNumber(values.mainphone)]}</span></li>
+						<li id="{id}_AccountSummaryView_txtWebAddress"><span><tpl if="webaddress"><a href="http://{webaddress:htmlEncode}" target="newWin">{webaddress:htmlEncode}</a></tpl></span></li>
+					</ul>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_AccountSummaryView_txtAccountMgr">
+							<td class="SummaryCaption">{AccountSummaryView_Captions.txtAccountMgr_Caption}</td>
+							<td class="DataItem">{accountmanager_userinfo_username:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_AccountSummaryView_txtType">
+							<td class="SummaryCaption">{AccountSummaryView_Captions.txtType_Caption}</td>
+							<td class="DataItem">{type:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_AccountSummaryView_txtSubType">
+							<td class="SummaryCaption">{AccountSummaryView_Captions.txtSubType_Caption}</td>
+							<td class="DataItem">{subtype:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_AccountSummaryView_txtIndustry">
+							<td class="SummaryCaption">{AccountSummaryView_Captions.txtIndustry_Caption}</td>
+							<td class="DataItem">{industry:htmlEncode}</td>
+						</tr>
+					</table>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_AccountSummaryView_agcContacts">
+							<td class="SummaryCaption">{AccountSummaryView_Captions.agcContacts_Caption}</td>
+							<td class="DataItem"><div slx:id="{id}" slx:summarymanager="{parent.summarymanager}" slx:summarychild="AccountSummaryView_agcContacts_query" class="hasWindow" onclick="summaryNavHandler('{id}', 'AccountContacts', event);" onmouseout="summaryToolTipHandler('out', event);" onmouseover="summaryToolTipHandler('over', event);">{Contacts_count}</div></td>
+						</tr>
+						<tr id="{id}_AccountSummaryView_agcOpportunities">
+							<td class="SummaryCaption">{AccountSummaryView_Captions.agcOpportunities_Caption}</td>
+							<td class="DataItem"><div slx:id="{id}" slx:summarymanager="{parent.summarymanager}" slx:summarychild="AccountSummaryView_agcOpportunities_query" class="hasWindow" onclick="summaryNavHandler('{id}', 'AccountOpportunities', event);" onmouseout="summaryToolTipHandler('out', event);" onmouseover="summaryToolTipHandler('over', event);">{Opportunities_count}</div></td>
+						</tr>
+						<tr id="{id}_AccountSummaryView_agcTickets">
+							<td class="SummaryCaption">{AccountSummaryView_Captions.agcTickets_Caption}</td>
+							<td class="DataItem"><div slx:id="{id}" slx:summarymanager="{parent.summarymanager}" slx:summarychild="AccountSummaryView_agcTickets_query" class="hasWindow" onclick="summaryNavHandler('{id}', 'AccountTickets', event);" onmouseout="summaryToolTipHandler('out', event);" onmouseover="summaryToolTipHandler('over', event);">{Tickets_count}</div></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div></tpl>
+]]></Template>
+  <WhereFormatString> mainentity.id eq '{0}'</WhereFormatString>
+</WebSummaryViewConfiguration>

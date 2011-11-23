@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<exportedFiles>
+  <exportedFile url="\deployment\webroot\common\SmartParts\Opportunity\App_LocalResources\InsertOpportunity.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:09.7700" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Opportunity\App_LocalResources\InsertOpportunity.ascx.resx" timeStamp="2011-09-16T19:03:09.7700" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Opportunity\App_LocalResources\OpportunityCampaigns.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:09.7900" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Opportunity\App_LocalResources\OpportunityCampaigns.ascx.resx" timeStamp="2011-09-16T19:03:09.7900" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Opportunity\App_LocalResources\OpportunityClosedLost.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:09.8100" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Opportunity\App_LocalResources\OpportunityClosedLost.ascx.resx" timeStamp="2011-09-16T19:03:09.8100" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Opportunity\App_LocalResources\OpportunityClosedWon.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:09.8300" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Opportunity\App_LocalResources\OpportunityClosedWon.ascx.resx" timeStamp="2011-09-16T19:03:09.8300" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Opportunity\App_LocalResources\OpportunityCompetitors.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:09.8500" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Opportunity\App_LocalResources\OpportunityCompetitors.ascx.resx" timeStamp="2011-09-16T19:03:09.8500" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Opportunity\App_LocalResources\OpportunityContacts.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:09.8700" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Opportunity\App_LocalResources\OpportunityContacts.ascx.resx" timeStamp="2011-09-16T19:03:09.8700" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Opportunity\App_LocalResources\OpportunityDetails.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:09.8900" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Opportunity\App_LocalResources\OpportunityDetails.ascx.resx" timeStamp="2011-09-16T19:03:09.8900" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Opportunity\App_LocalResources\SalesOrders.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:09.9530" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Opportunity\App_LocalResources\SalesOrders.ascx.resx" timeStamp="2011-09-16T19:03:09.9630" />
+</exportedFiles>

@@ -1,0 +1,19 @@
+﻿<?xml version="1.0"?>
+<exportedFiles>
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\App_LocalResources\ContactDetails.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:11.8430" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\App_LocalResources\ContactDetails.ascx.resx" timeStamp="2011-09-16T19:03:11.8430" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\App_LocalResources\ContactExtendedDetails.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:11.8730" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\App_LocalResources\ContactExtendedDetails.ascx.resx" timeStamp="2011-09-16T19:03:11.8730" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\App_LocalResources\ContactLeadSources.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:11.8930" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\App_LocalResources\ContactLeadSources.ascx.resx" timeStamp="2011-09-16T19:03:11.8930" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\App_LocalResources\ContactLiteratureRequests.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:11.9430" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\App_LocalResources\ContactLiteratureRequests.ascx.resx" timeStamp="2011-09-16T19:03:11.9430" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\App_LocalResources\ContactOpportunities.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:11.9630" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\App_LocalResources\ContactOpportunities.ascx.resx" timeStamp="2011-09-16T19:03:11.9630" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\App_LocalResources\ContactProcesses.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:11.9830" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\App_LocalResources\ContactProcesses.ascx.resx" timeStamp="2011-09-16T19:03:11.9830" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\App_LocalResources\ContactTickets.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:12.0230" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\App_LocalResources\ContactTickets.ascx.resx" timeStamp="2011-09-16T19:03:12.0230" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\App_LocalResources\SelectAccountAddress.ascx.pt-BR.resx" timeStamp="2011-09-16T19:03:12.0630" />
+  <exportedFile url="\deployment\webroot\common\SmartParts\Contact\App_LocalResources\SelectAccountAddress.ascx.resx" timeStamp="2011-09-16T19:03:12.0630" />
+</exportedFiles>

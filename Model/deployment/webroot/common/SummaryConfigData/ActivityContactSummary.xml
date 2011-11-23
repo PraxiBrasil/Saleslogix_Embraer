@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebSummaryViewConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EntityType TypeName="Sage.Entity.Interfaces.IActivity, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <Properties />
+  </EntityType>
+  <Query id="fa2fd3c3-dfa6-4b6e-adcd-c1bf7a3200f5" expires="0" name="ActivityContactSummary_query">
+    <columnAliases>
+      <alias>id</alias>
+      <alias>contactid</alias>
+      <alias>contactname</alias>
+      <alias>leadid</alias>
+      <alias>leadname</alias>
+      <alias>phonenumber</alias>
+      <alias>accountid</alias>
+      <alias>accountname</alias>
+      <alias>txtLeader_userid</alias>
+      <alias>priority</alias>
+      <alias>opportunityid</alias>
+      <alias>opportunityname</alias>
+      <alias>ticketid</alias>
+      <alias>ticketnumber</alias>
+      <alias>description</alias>
+      <alias>recurring</alias>
+      <alias>alarm</alias>
+      <alias>type</alias>
+      <alias>timeless</alias>
+      <alias>startdate</alias>
+      <alias>notes</alias>
+      <alias>userid</alias>
+      <alias>duration</alias>
+      <alias>attachment</alias>
+    </columnAliases>
+    <Parameters />
+    <hql>select  mainentity.id,  mainentity.ContactId,  mainentity.ContactName,  mainentity.LeadId,  mainentity.LeadName,  mainentity.PhoneNumber,  mainentity.AccountId,  mainentity.AccountName, txtLeader.UserInfo.UserName,  mainentity.Priority,  mainentity.OpportunityId,  mainentity.OpportunityName,  mainentity.TicketId,  mainentity.TicketNumber,  mainentity.Description,  mainentity.Recurring,  mainentity.Alarm,  mainentity.Type,  mainentity.Timeless,  mainentity.StartDate,  mainentity.Notes,  mainentity.UserId,  mainentity.Duration,  mainentity.Attachment from Activity  mainentity  , User as txtLeader  where   mainentity.UserId = txtLeader.id</hql>
+  </Query>
+  <CollectionProperties />
+  <Template><![CDATA[
+<tpl for="items"><div id="{id}" class="EntityCard">
+	<table style="width:100%">
+		<col style="width:45%" />
+		<col style="width:45%" />
+		<thead><tr><th colspan="2">
+			<div class="SummaryTitle">{[buildHeader(values)]}</div>
+		</th></tr></thead>
+		<tbody>
+			<tr>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_ActivityContactSummary_txtStartTime">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.txtStartTime_Caption}</td>
+							<td class="DataItem">{[formatDateTimeSummary(values)]}</td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_txtDuration" class="x-hide-display">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.txtDuration_Caption}</td>
+							<td class="DataItem">{[formatDurationLong(values)]}</td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_txtContactName" class="x-hide-display">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.txtContactName_Caption}</td>
+							<td class="DataItem"><a href="Contact.aspx?entityid={contactid}" >{contactname:htmlEncode}</a></td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_txtLeadName" class="x-hide-display">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.txtLeadName_Caption}</td>
+							<td class="DataItem"><a href="Lead.aspx?entityid={leadid}" >{leadname:htmlEncode}</a></td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_txtPhone" class="x-hide-display">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.txtPhone_Caption}</td>
+							<td class="DataItem">{[LiveGrid_RenderPhoneNumber(values.phonenumber)]}</td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_txtAccount" class="x-hide-display">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.txtAccount_Caption}</td>
+							<td class="DataItem"><a href="Account.aspx?entityid={accountid}" >{accountname:htmlEncode}</a></td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_txtLeadCompany" class="x-hide-display">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.txtLeadCompany_Caption}</td>
+							<td class="DataItem">{accountname:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_txtLeader">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.txtLeader_Caption}</td>
+							<td class="DataItem">{txtLeader_userid}</td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_txtPriority" class="x-hide-display">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.txtPriority_Caption}</td>
+							<td class="DataItem">{priority:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_txtOpportunityName" class="x-hide-display">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.txtOpportunityName_Caption}</td>
+							<td class="DataItem"><a href="Opportunity.aspx?entityid={opportunityid}" >{opportunityname:htmlEncode}</a></td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_txtTicketNumber" class="x-hide-display">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.txtTicketNumber_Caption}</td>
+							<td class="DataItem"><a href="Ticket.aspx?entityid={ticketid}" >{ticketnumber:htmlEncode}</a></td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_txtDescription" class="x-hide-display">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.txtDescription_Caption}</td>
+							<td class="DataItem">{description:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_txtRecurring" class="x-hide-display">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.txtRecurring_Caption}</td>
+							<td class="DataItem">{recurring:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_dtpAlarmTime" class="x-hide-display">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.dtpAlarmTime_Caption}</td>
+							<td class="DataItem">{alarm:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_txtType" class="x-hide-display">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.txtType_Caption}</td>
+							<td class="DataItem">{type:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_txtTimeless" class="x-hide-display">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.txtTimeless_Caption}</td>
+							<td class="DataItem">{timeless:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_dtpStartDate" class="x-hide-display">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.dtpStartDate_Caption}</td>
+							<td class="DataItem">{startdate:date}</td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_txtContactEmail" class="x-hide-display">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.txtContactEmail_Caption}</td>
+							<td class="DataItem"></td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_txtLeadEmail" class="x-hide-display">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.txtLeadEmail_Caption}</td>
+							<td class="DataItem"></td>
+						</tr>
+						<tr id="{id}_ActivityContactSummary_lblPostRenderScript" class="x-hide-display">
+							<td class="SummaryCaption">{ActivityContactSummary_Captions.lblPostRenderScript_Caption}</td>
+							<td class="DataItem">{[PostRenderScript(values)]}</td>
+						</tr>
+					</table>
+				</td>
+				<td class="DataColumn">
+					<ul>
+						<li id="{id}_ActivityContactSummary_txtNotes" class="x-hide-display"><span>{notes:htmlEncode}</span></li>
+						<li id="{id}_ActivityContactSummary_txtUserId" class="x-hide-display"><span>{userid:htmlEncode}</span></li>
+						<li id="{id}_ActivityContactSummary_hdnDuration" class="x-hide-display"><span>{duration:htmlEncode}</span></li>
+						<li id="{id}_ActivityContactSummary_hdnAttachment" class="x-hide-display"><span>{attachment:htmlEncode}</span></li>
+					</ul>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div></tpl>
+]]></Template>
+  <WhereFormatString> mainentity.id eq '{0}'</WhereFormatString>
+</WebSummaryViewConfiguration>

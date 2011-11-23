@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WebSummaryViewConfiguration xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <EntityType TypeName="Sage.Entity.Interfaces.ILead, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+    <Properties />
+  </EntityType>
+  <Query id="6ada3291-a9fd-4e81-88a2-3c04b1834f86" expires="0" name="LeadSummary_query">
+    <columnAliases>
+      <alias>id</alias>
+      <alias>leadfullname</alias>
+      <alias>address_address1</alias>
+      <alias>address_leadctystzip</alias>
+      <alias>workphone</alias>
+      <alias>email</alias>
+      <alias>company</alias>
+      <alias>title</alias>
+      <alias>industry</alias>
+      <alias>leadsource_description</alias>
+      <alias>Responses_count</alias>
+    </columnAliases>
+    <Parameters />
+    <hql>select  mainentity.id,  mainentity.LeadFullName,  mainentity.Address.Address1,  mainentity.Address.LeadCtyStZip,  mainentity.WorkPhone,  mainentity.Email,  mainentity.Company,  mainentity.Title,  mainentity.Industry,  mainentity.LeadSource.Description, count(distinct responses_.id) from Lead  mainentity  left join  mainentity.Responses responses_  left join  mainentity.Address  left join  mainentity.LeadSource  group by  mainentity.id,  mainentity.LeadFullName,  mainentity.Address.Address1,  mainentity.Address.LeadCtyStZip,  mainentity.WorkPhone,  mainentity.Email,  mainentity.Company,  mainentity.Title,  mainentity.Industry,  mainentity.LeadSource.Description</hql>
+  </Query>
+  <CollectionProperties>
+    <CollectionSummaryProperty>
+      <CollectionProperty Name="Responses" TypeConverter="" />
+      <ChildType TypeName="Sage.Entity.Interfaces.ILead, Sage.Entity.Interfaces, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null">
+        <Properties />
+      </ChildType>
+      <NamedQuery id="cefa1b6c-18af-4096-b494-762b0e20b3c7" expires="0" name="LeadSummary_agcResponses_query">
+        <columnAliases>
+          <alias>id</alias>
+          <alias>whereclauseid</alias>
+          <alias>responsemethod</alias>
+          <alias>interest</alias>
+          <alias>interestlevel</alias>
+        </columnAliases>
+        <Parameters />
+        <hql>select targetresponse.id,targetresponse.Lead.id,targetresponse.ResponseMethod,targetresponse.Interest,targetresponse.InterestLevel from TargetResponse targetresponse</hql>
+      </NamedQuery>
+      <Template><![CDATA[
+<table>
+	<tpl for="items"><tpl if="xindex <= 25">
+		<tr>
+			<td class="SummaryChildrenTableCell"><span title="{responsemethod}">{responsemethod:ellipsis(20)}</span></td>
+			<td class="SummaryChildrenTableCell"><span title="{interest}">{interest:ellipsis(20)}</span></td>
+			<td class="SummaryChildrenTableCell"><span title="{interestlevel}">{interestlevel:ellipsis(20)}</span></td>
+		</tr>
+	</tpl>
+	<tpl if="xindex == 26">
+		<tr><td class="SummaryChildrenTableCell"><span >...</span></td></tr>
+	</tpl>
+	</tpl>
+</table>
+]]></Template>
+      <WhereFormatString>targetresponse.Lead.id eq '{0}'</WhereFormatString>
+    </CollectionSummaryProperty>
+  </CollectionProperties>
+  <Template><![CDATA[
+<tpl for="items"><div id="{id}" class="EntityCard">
+	<table>
+		<col style="width:200px" />
+		<col style="width:300px" />
+		<col />
+		<thead><tr><th colspan="3">
+			<div class="SummaryTitle"><a href="Lead.aspx?entityid={id}" >{leadfullname:htmlEncode}</a></div>
+		</th></tr></thead>
+		<tbody>
+			<tr>
+				<td class="DataColumn">
+					<ul>
+						<li id="{id}_LeadSummary_txtAddress1"><span>{address_address1:htmlEncode}</span></li>
+						<li id="{id}_LeadSummary_txtCityStateZip"><span>{address_leadctystzip:htmlEncode}</span></li>
+						<li id="{id}_LeadSummary_phnWork"><span>{[LiveGrid_RenderPhoneNumber(values.workphone)]}</span></li>
+						<li id="{id}_LeadSummary_emlLead"><span><a href="mailto:{email}">{email:htmlEncode}</a></span></li>
+					</ul>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_LeadSummary_txtCompany">
+							<td class="SummaryCaption">{LeadSummary_Captions.txtCompany_Caption}</td>
+							<td class="DataItem">{company:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_LeadSummary_txtTitle">
+							<td class="SummaryCaption">{LeadSummary_Captions.txtTitle_Caption}</td>
+							<td class="DataItem">{title:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_LeadSummary_txtIndustry">
+							<td class="SummaryCaption">{LeadSummary_Captions.txtIndustry_Caption}</td>
+							<td class="DataItem">{industry:htmlEncode}</td>
+						</tr>
+						<tr id="{id}_LeadSummary_lueLeadSource">
+							<td class="SummaryCaption">{LeadSummary_Captions.lueLeadSource_Caption}</td>
+							<td class="DataItem">{leadsource_description:htmlEncode}</td>
+						</tr>
+					</table>
+				</td>
+				<td class="DataColumn">
+					<table>
+						<tr id="{id}_LeadSummary_agcResponses">
+							<td class="SummaryCaption">{LeadSummary_Captions.agcResponses_Caption}</td>
+							<td class="DataItem"><div slx:id="{id}" slx:summarymanager="{parent.summarymanager}" slx:summarychild="LeadSummary_agcResponses_query" class="hasWindow" onclick="summaryNavHandler('{id}', 'LeadResponses', event);" onmouseout="summaryToolTipHandler('out', event);" onmouseover="summaryToolTipHandler('over', event);">{Responses_count}</div></td>
+						</tr>
+					</table>
+				</td>
+			</tr>
+		</tbody>
+	</table>
+</div></tpl>
+]]></Template>
+  <WhereFormatString> mainentity.id eq '{0}'</WhereFormatString>
+</WebSummaryViewConfiguration>
